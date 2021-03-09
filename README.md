@@ -1,1 +1,138 @@
-# Coin Créatif
+<h1 align="center">Coin Creatif
+
+=============================
+</h1>
+
+<h2 align="center">Application Description
+
+=============================
+</h2>
+
+This is an application for artist and creative types. Using react we've made a user friendly and mobile forward website. It is a platform to showcase and sell handmade items with the ability to post new items and checkout items as well once you have logged into your account.
+
+
+<h2 align="center">Table of Contents: 
+
+=============================
+</h2>
+
+<h4 align="center">
+
+ [Description](#description) ||
+ [User Story](#user-story) ||
+ [Technologies Used](#technologies-used) ||
+ [Future Development](#future-development) ||
+ [Team Members](#team-members) ||
+ [License](#License) ||
+</h4>
+
+
+<h2 align="center">💻 HTML generated: 
+
+=============================
+</h2>
+
+<h4 align="center">
+
+[Live Application on Heroku](#)
+
+</h4>
+
+<h2 align="center">Figure Showing ???: 
+
+=============================
+</h2>
+
+![Tables]()
+
+<h2 align="center">🎥 Main Page:
+
+=============================
+</h2>
+
+![Login]()
+
+<h2 align="center">🎥 ??? Page:
+
+=============================
+</h2>
+
+![Main]()
+
+
+<h2 align="center">User Story
+
+=============================
+</h2>
+
+```
+AS A USER 
+I WANT TO 
+SO THAT I CAN
+```
+
+<h2 align="center">Technology Used
+
+=============================
+</h2>
+
+```
+- React
+- Express
+- Axios
+- Mongoose
+- Node
+- Heroku : for deployment
+- if-env
+```
+
+<h2 align="center">Future Development
+
+=============================
+</h2>
+
+```
+Our future plans to further develop this application are...
+
+```
+
+<h2 align="center">Team Members
+
+=============================
+</h2>
+
+<h4 align="center">
+
+Amethyst White
+[GitHub](https://github.com/Am-White)  ||
+[Linkedin](https://www.linkedin.com/in/amethyst-white-1942761b7/)
+
+Elizabeth Brandt
+[GitHub](https://github.com/elizabethbrandt)  ||
+[Linkedin](https://www.linkedin.com/in/elizabeth-brandt-pnw/)
+
+Francine Babauta
+[GitHub](https://github.com/fbabauta) ||
+[Linkedin](www.linkedin.com/in/francine-babauta)
+
+Jainanie Kaganovsky
+[GitHub](https://github.com/jkaganovsky) ||
+[Linkedin](https://www.linkedin.com/in/jailanie-kaganovsky-573a00116/)
+
+</h4>
+
+
+<h2 align="center">License
+
+=============================
+</h2>
+
+![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)
+
+Copyright <2021> <Coin Creatif Team>
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
