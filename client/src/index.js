@@ -1,14 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-//import App from './App';
-import App from "./App-Auth";
+import AppAuth from "./App-Auth";
 import reportWebVitals from './reportWebVitals';
 
 const rootElement = document.getElementById("root");
 ReactDOM.render(
   <React.StrictMode>
-    <App /> 
+    < AppAuth />
+     
   </React.StrictMode>,
   rootElement
 );
