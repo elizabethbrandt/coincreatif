@@ -18,7 +18,7 @@ function Home({ handleLogOut }) {
         
       </div>
       <div>
-      <p>Welcome...</p>
+      <p>Welcome....</p>
 
       </div>
     </div>
