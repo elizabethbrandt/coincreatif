@@ -1,0 +1,96 @@
+  body {
+    background-color: rgb(223, 184, 203);
+    padding:30px;
+  }
+  button {
+    border: none;
+    outline: none;
+    width: 50%;
+    padding: 15px 0;
+    color: #fff;
+    font-size: 16px;
+    letter-spacing: 1px;
+    background: #1c7519;
+    cursor: pointer;
+  }
+
+  /* Logout Button style */
+  .logout-button {
+    background-color: #55becc;
+    width: auto;
+    text-align: center;
+    float: right;
+  }
+  
+
+  /* Main container styling */
+  .loginContainer {
+    padding: 60px;
+    margin: auto;
+    width: 100%;
+    max-width: 520px;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: rgba(36, 224, 68, 0.781);
+    box-shadow: 0 50px 70px -20px rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+  }
+
+  .loginTitle {
+    font-size: 50px;
+  }
+  
+.loginContainer label {
+    color: rgb(0, 0, 0);
+    margin: 14px 0;
+    display: block;
+    font-size: 22px;
+    line-height: 1;
+  }
+  
+  /* input styles for log-in/out*/
+ .loginContainer input {
+    width: 100%;
+    border:none;
+    font-size: 19px;
+    padding: 10px;
+    background: rgba(57, 126, 80, 0.212);
+    color: rgb(241, 238, 238);
+    letter-spacing: 1px;
+  }
+  
+  /* Sing-in/Up button*/
+  .btnContainer {
+    width: 100%;
+    padding: 24px 0;
+    text-align: center;
+  }
+  
+.btnContainer p {
+    margin: 14px 0 0 0;
+    text-align: center;
+    color: rgb(5, 5, 5);
+  }
+  
+  /* Have account already? Link*/
+  .btnContainer p span {
+    color: rgb(6, 163, 202);
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    margin-left: 5px;
+    cursor: pointer;
+    transition: all 400ms ease-in-out;
+  }
+  
+  /*Styles for error messages*/
+  .btnContainer p span:hover {
+    text-decoration: underline;
+  }
+  
+  /* Email and password error message styling*/
+  .errorMsg {
+    color: red;
+    font-size: 16px;
+  }
