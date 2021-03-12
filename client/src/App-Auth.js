@@ -1,9 +1,16 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
-import Login from "./pages/Login";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import fire from "./components/fire/fire";
-import Home from "./pages/Home";
+
+import './App.css';
+import Nav from './components/Nav';
+import Cart from './pages/Cart';
+import Home from './pages/Home';
+import Item from './pages/Item';
+import Login from './pages/Login';
+import Products from './pages/Products';
+import Signup from './pages/Signup';
 
 function AppAuth () {
   const [user, setUser] = useState('');
