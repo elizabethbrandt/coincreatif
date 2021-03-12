@@ -2,6 +2,10 @@ import React from "react";
 
 //We could turn this into a Navbar or link it?
 //Handles logout function
+
+//////////
+//Link the logout function to the nav bar//
+//////////
 function Home({ handleLogOut }) {
   return (
     <div className="home">
