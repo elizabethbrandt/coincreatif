@@ -4,15 +4,14 @@ const mongoose = require("mongoose");
 const routes = require("./client/routes/userRoutes");
 const app = express();
 const cors = require("cors");
-const bodyParser = require("body-parser");
-const dbConfig = require("./client/database/db");
+const dbConfig = require("./client/config/db");
 const PORT = process.env.PORT || 3001;
 
 const api = require("./client/routes/userRoutes");
 
 // Define middleware here
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
@@ -47,7 +46,6 @@ mongoose.connect(dbConfig.db, {
     console.log("Could not connect to database: " + error);
   }
 )
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/coincreatif");
 
 // Start the API server
 app.listen(PORT, () => {

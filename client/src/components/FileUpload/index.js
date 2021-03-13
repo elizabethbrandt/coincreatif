@@ -1,54 +1,44 @@
-import React, { Component } from "react";
-import axios from "axios";
+import React, { useState, useEffect } from "react";
+import API from "../../utils/API";
 
-class FileUpload extends Component {
+function FileUpload() {
 
-  constructor(props) {
-    super(props);
+  const [image, setImage] = useState("");
 
-    this.onFileChange = this.onFileChange.bind(this);
-    this.onSubmit = this.onSubmit.bind(this);
-
-    this.state = {
-      imgCollection: ""
-    }
+  const handleFileChange = e => {
+    const {image} = e.target.files
+    setImage(image)
+    console.log(image);
   }
 
-  onFileChange(e) {
-    this.setState({ imgCollection: e.target.files })
-  }
-
-  onSubmit(e) {
+  const handleSubmit = e => {
     e.preventDefault()
 
     const formData = new FormData();
-    for (let key of Object.keys(this.state.imgCollection)) {
-      formData.append("imgCollection", this.state.imgCollection[key])
+    for (let key of Object.keys({handleFileChange})) {
+      formData.append("imgCollection", {handleFileChange}[key])
     }
 
-    axios.post("http://localhost:3000/api/upload-images", formData, {})
-    .then(res => {
-      console.log(res.data);
+    API.addPosts(image).then(results => {
+      console.log(results.data);
     })
   }
 
-  render() {
-    return (
-      <div className="container">
-        <div className="row">
-          <form onSubmit={this.onSubmit}>
-            <h3>Upload Files</h3>
-            <div className="form-group">
-                <input type="file" name="imgCollection" onChange={this.onFileChange} multiple/>
-            </div>
-            <div className="form-group">
-              <button className="btn btn-primary" type="submit">Upload</button>
-            </div>
-          </form>
-        </div>
+  return (
+    <div className="container">
+      <div className="row">
+        <form onSubmit={handleSubmit}>
+          <h3>Upload Files</h3>
+          <div className="form-group">
+              <input type="file" name="imgCollection" onChange={handleFileChange} value={image}multiple/>
+          </div>
+          <div className="form-group">
+            <button className="btn btn-primary" type="submit" onClick={handleSubmit}>Upload</button>
+          </div>
+        </form>
       </div>
-    )
-  }
+    </div>
+  )
 }
 
 export default FileUpload;
