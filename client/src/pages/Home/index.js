@@ -1,5 +1,5 @@
 import React from "react";
-import app from "./base";
+import app from "../../utils/base";
 
 function Home() {
 
