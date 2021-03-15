@@ -40,6 +40,9 @@ const Login = ({ history }) => {
         </label>
         <button type="submit">Log in</button>
       </form>
+      <p>Don't have an account yet?
+            SIGNUP
+        </p>
     </div>
   );
 };

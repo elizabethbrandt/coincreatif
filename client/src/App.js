@@ -8,8 +8,8 @@ import Login from './pages/Login';
 import Products from './pages/Products';
 import Signup from './pages/Signup';
 
-import { AuthProvider } from "./Auth";
-import PrivateRoute from "./PrivateRoute";
+import { AuthProvider } from "./utils/Auth";
+import PrivateRoute from "./utils/PrivateRoute";
 
 function App() {
   return (

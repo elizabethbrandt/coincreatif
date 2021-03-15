@@ -30,6 +30,9 @@ const SignUp = ({ history }) => {
         </label>
         <button type="submit">Sign Up</button>
       </form>
+        <p>Already have an account yet?
+            LOGIN
+        </p>
     </div>
   );
 };
