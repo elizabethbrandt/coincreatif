@@ -2,6 +2,8 @@ import React, { useCallback, useContext } from "react";
 import { withRouter, Redirect } from "react-router";
 import app from "../../utils/base";
 import { AuthContext } from "../../utils/Auth";
+import IfUnAuthed from '../../utils/google';
+
 
 const Login = ({ history }) => {
   const handleLogin = useCallback(
@@ -43,7 +45,12 @@ const Login = ({ history }) => {
       <p>Don't have an account yet?
             SIGNUP
         </p>
+
+        <button>
+        <IfUnAuthed />
+        </button>
     </div>
+    
   );
 };
 
