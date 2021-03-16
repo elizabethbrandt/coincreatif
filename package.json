@@ -24,10 +24,11 @@
     "typescript": "3.8.3"
   },
   "dependencies": {
-    "Router": "2.1.0",
+
     "axios": "^0.21.1",
     "express": "^4.16.3",
-    "firebase": "8.0.0",
+    "firebase": "^8.3.0",
+
     "if-env": "^1.0.4",
     "mongoose": "^5.12.0",
     "react": "16.13.1",

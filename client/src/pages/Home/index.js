@@ -1,28 +1,16 @@
 import React from "react";
 
-//We could turn this into a Navbar or link it?
-//Handles logout function
+import app from "../../utils/base";
 
-//////////
-//Link the logout function to the nav bar//
-//////////
-function Home({ handleLogOut }) {
-  return (
-    <div className="home">
-      <div className="login-divider">
-        <button className="logout-button" onClick={handleLogOut}>
-          Logout
-        </button>
+function Home() {
 
-        <h1>Coin Creatif</h1>
-        
-      </div>
-      <div>
-      <p>Welcome....</p>
+    return (
+        <div>
+           <h1>Home</h1>
+            <button onClick={() => app.auth().signOut()}>Sign out</button>
+        </div>
+    )
 
-      </div>
-    </div>
-  );
 }
 
 export default Home;

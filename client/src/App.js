@@ -8,14 +8,18 @@ import Login from './pages/Login';
 import Products from './pages/Products';
 import Signup from './pages/Signup';
 
+import { AuthProvider } from "./utils/Auth";
+import PrivateRoute from "./utils/PrivateRoute";
+
 function App() {
   return (
+  <AuthProvider>
     <Router>
       <div>
         <Nav />
         <Switch>
 
-          <Route exact path="/" component={Home} />
+          <PrivateRoute exact path="/" component={Home} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/signup" component={Signup} />
           <Route exact path="/products" component={Products} />
@@ -26,6 +30,7 @@ function App() {
         </Switch>
       </div>
     </Router>
+    </AuthProvider>
   );
 }
 

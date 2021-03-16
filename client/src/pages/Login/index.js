@@ -1,87 +1,59 @@
-import React from "react";
-//import "./login.css";
 
-const Login = (props) => {
-  const {
-    email,
-    setEmail,
-    password,
-    setPassword,
-    handleLogin,
-    handleSignup,
-    hasAccount,
-    setHasAccount,
-    emailError,
-    passwordError
-  } = props;
+import React, { useCallback, useContext } from "react";
+import { withRouter, Redirect } from "react-router";
+import app from "../../utils/base";
+import { AuthContext } from "../../utils/Auth";
+import IfUnAuthed from '../../utils/google';
 
+
+const Login = ({ history }) => {
+  const handleLogin = useCallback(
+    async event => {
+      event.preventDefault();
+      const { email, password } = event.target.elements;
+      try {
+        await app
+          .auth()
+          .signInWithEmailAndPassword(email.value, password.value);
+        history.push("/");
+      } catch (error) {
+        alert(error);
+      }
+    },
+    [history]
+  );
+
+  const { currentUser } = useContext(AuthContext);
+
+  if (currentUser) {
+    return <Redirect to="/" />;
+  }
 
   return (
+    <div>
+      <h1>Log in</h1>
+      <form onSubmit={handleLogin}>
+        <label>
+          Email
+          <input name="email" type="email" placeholder="Email" />
+        </label>
+        <label>
+          Password
+          <input name="password" type="password" placeholder="Password" />
+        </label>
+        <button type="submit">Log in</button>
+      </form>
+      <p>Don't have an account yet?
+            SIGNUP
+        </p>
+
+        <button>
+        <IfUnAuthed />
+        </button>
+    </div>
     
-    //React Fragment
-    //onClick in span = toggle
-    <section className="login">
-      <div className="loginContainer">
-      <div className="btnContainer">
-          {hasAccount ? (
-            <>
-              <h1 className="loginTitle" onClick={handleLogin}>Sign In</h1>
-            </>
-          ) : (
-            <>
-              <h1 className="loginTitle" onClick={handleLogin}>Sign up</h1>
-            </>
-          )}
-        </div>
-
-        <label>Email</label>
-        <input
-          type="text"
-          required
-          autoFocus
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <p className="errorMsg">{emailError}</p>
-        <label>Password</label>
-        <input
-          type="password"
-          required
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <p className="errorMsg">{passwordError}</p>
-        <div className="btnContainer">
-          {hasAccount ? (
-            <>
-              <button onClick={handleLogin}>Sign In</button>
-
-              <p>
-                Don't have a account?
-                <span onClick={() => setHasAccount(!hasAccount)}>Sign Up</span>
-              </p>
-              <p>
-                HERE WILL BE GOOGLE/FB LOGIN
-              </p>
-            </>
-          ) : (
-            <>
-              <button onClick={handleSignup}>Sign up</button>
-              
-              <p>
-                Have and account ?
-                <span onClick={() => setHasAccount(!hasAccount)}>Sign in</span>
-              </p>
-
-              <p>
-                HERE WILL BE GOOGLE/FB LOGIN
-              </p>
-            </>
-          )}
-        </div>
-      </div>
-    </section>
   );
 };
 
-export default Login;
+export default withRouter(Login);
+
