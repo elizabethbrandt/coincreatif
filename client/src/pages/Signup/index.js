@@ -2,6 +2,7 @@ import React, { useCallback } from "react";
 import { withRouter } from "react-router";
 import app from "../../utils/base";
 
+
 const SignUp = ({ history }) => {
   const handleSignUp = useCallback(async event => {
     event.preventDefault();
@@ -33,6 +34,7 @@ const SignUp = ({ history }) => {
         <p>Already have an account yet?
             LOGIN
         </p>
+
     </div>
   );
 };
