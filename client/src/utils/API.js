@@ -9,6 +9,6 @@ export default {
 
   addPosts: function(formData) {
     console.log("Form Data:", formData);
-    return axios.post("/api/upload-images/" + formData);
+    return axios.post("/api/upload/" + formData);
   }
 };

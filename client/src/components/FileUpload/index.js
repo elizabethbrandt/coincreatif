@@ -1,44 +1,42 @@
-import React, { useState, useEffect } from "react";
-import API from "../../utils/API";
+import React, { useState } from "react";
+import axios from "axios";
 
-function FileUpload() {
-
-  const [image, setImage] = useState("");
+function ImageUpload() {
+  const [fileData, setFileData] = useState();
+  const [images, setFile] = useState("");
 
   const handleFileChange = e => {
-    const {image} = e.target.files
-    setImage(image)
-    console.log(image);
-  }
+    setFileData(e.target.files[0]);
+    setFile(e.target.value);
+  };
 
-  const handleSubmit = e => {
-    e.preventDefault()
+  const handleSubmit = async(e) => {
+    e.preventDefault();
 
     const formData = new FormData();
-    for (let key of Object.keys({handleFileChange})) {
-      formData.append("imgCollection", {handleFileChange}[key])
-    }
 
-    API.addPosts(image).then(results => {
-      console.log(results.data);
-    })
-  }
+    formData.append("image", fileData);
 
-  return (
+    await axios.post("/api/image", formData)
+      .then((res) => console.log("res", res.data))
+      .catch((error) => console.error(error));
+  };
+
+  return(
     <div className="container">
       <div className="row">
         <form onSubmit={handleSubmit}>
           <h3>Upload Files</h3>
           <div className="form-group">
-              <input type="file" name="imgCollection" onChange={handleFileChange} value={image}multiple/>
+              <input type="file" name="imgCollection" onChange={handleFileChange} value={images}multiple accept="image/*" placeholder="upload image" isRequire={true} />
           </div>
           <div className="form-group">
-            <button className="btn btn-primary" type="submit" onClick={handleSubmit}>Upload</button>
+            <button className="btn btn-primary" type="submit">Upload</button>
           </div>
         </form>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default FileUpload;
+export default ImageUpload;
