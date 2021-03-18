@@ -1,9 +1,57 @@
-function Login() {
-    return (
-        <div>
-            <p>Login Page</p>
-        </div>
-    )
-}
+import React, { useCallback, useContext } from "react";
+import { withRouter, Redirect } from "react-router";
+import app from "../../utils/base";
+import { AuthContext } from "../../utils/Auth";
+import IfUnAuthed from '../../utils/google';
 
-export default Login;
+
+const Login = ({ history }) => {
+  const handleLogin = useCallback(
+    async event => {
+      event.preventDefault();
+      const { email, password } = event.target.elements;
+      try {
+        await app
+          .auth()
+          .signInWithEmailAndPassword(email.value, password.value);
+        history.push("/");
+      } catch (error) {
+        alert(error);
+      }
+    },
+    [history]
+  );
+
+  const { currentUser } = useContext(AuthContext);
+
+  if (currentUser) {
+    return <Redirect to="/" />;
+  }
+
+  return (
+    <div>
+      <h1>Log in</h1>
+      <form onSubmit={handleLogin}>
+        <label>
+          Email
+          <input name="email" type="email" placeholder="Email" />
+        </label>
+        <label>
+          Password
+          <input name="password" type="password" placeholder="Password" />
+        </label>
+        <button type="submit">Log in</button>
+      </form>
+      <p>Don't have an account yet?
+            SIGNUP
+        </p>
+
+        <button>
+        <IfUnAuthed />
+        </button>
+    </div>
+    
+  );
+};
+
+export default withRouter(Login);
