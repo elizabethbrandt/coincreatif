@@ -17,7 +17,7 @@ function ImageUpload() {
 
     formData.append("image", fileData);
 
-    await axios.post("/api/image", formData)
+    await axios.post("/api/images", formData)
       .then((res) => console.log("res", res.data))
       .catch((error) => console.error(error));
   };
@@ -28,7 +28,7 @@ function ImageUpload() {
         <form onSubmit={handleSubmit}>
           <h3>Upload Files</h3>
           <div className="form-group">
-              <input type="file" name="imgCollection" onChange={handleFileChange} value={images}multiple accept="image/*" placeholder="upload image" isRequire={true} />
+              <input type="file" name="imgCollection" onChange={handleFileChange} value={images}multiple accept="image/*" placeholder="upload image" isrequired="true" />
           </div>
           <div className="form-group">
             <button className="btn btn-primary" type="submit">Upload</button>

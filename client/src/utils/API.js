@@ -4,11 +4,11 @@ import axios from "axios";
 export default {
   getPosts: function(image) {
     console.log("Image:", image);
-    return axios.get("api/upload-images/" + image)
+    return axios.get("api/images/" + image)
   },
 
   addPosts: function(formData) {
     console.log("Form Data:", formData);
-    return axios.post("/api/upload/" + formData);
+    return axios.post("/api/images/" + formData);
   }
 };
