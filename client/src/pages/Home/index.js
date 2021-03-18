@@ -1,12 +1,26 @@
-import React from "react";
+import { Button, Typography } from "@material-ui/core";
+import { makeStyles } from '@material-ui/core/styles';
 import app from "../../utils/base";
 
+
+const useStyles = makeStyles({
+    primaryStyle: {
+        fontStyle: "oblique"
+    },
+    buttonStyles: {
+        color: "green"
+    }
+});
+
 function Home() {
+    const classes = useStyles();
 
     return (
         <div>
-           <h1>Home</h1>
-            <button onClick={() => app.auth().signOut()}>Sign out</button>
+            <Typography className={classes.primaryStyle} color="primary" variant="h1">Coin Créatif</Typography>
+            <Typography className={classes.primaryStyle} color="primary" variant="h3">Where small businesses thrive</Typography>
+            <Button color="primary" variant="outlined">Browse the Market</Button>
+            <Button onClick={() => app.auth().signOut()}>Sign out</Button>
         </div>
     )
 }
