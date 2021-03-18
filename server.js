@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 const mongoose = require("mongoose");
 const routes = require("./routes");
 
@@ -140,6 +141,22 @@ app.post('/webhook', async (req, res) => {
 
 
 
+=======
+const express = require("express");
+
+const routes = require("./routes/uploadRoutes");
+const app = express();
+const cors = require("cors");
+const dbConfig = require("./config/db");
+const PORT = process.env.PORT || 3001;
+
+const api = require("./routes/uploadRoutes");
+const multerUploads = require("./middleware/multer");
+const { ImageUploadRouter } = require("./routes/uploadRoutes");
+
+// Connect to MongDB
+require("./config/db");
+>>>>>>> da3144be08630567c9bcab15f17717e144047d15
 
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
@@ -151,11 +168,18 @@ if (process.env.NODE_ENV === "production") {
 
 
 // Add routes, both API and view
+<<<<<<< HEAD
 app.use(routes);
 
 
 // Connect to the Mongo DB
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/coincreatif");
+=======
+app.use("/api", ImageUploadRouter);
+app.use(cors());
+app.use("/public", express.static("public"));
+app.use("/api", api);
+>>>>>>> da3144be08630567c9bcab15f17717e144047d15
 
 // Start the API server
 app.listen(PORT, () => {
