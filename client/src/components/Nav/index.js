@@ -1,15 +1,19 @@
+import { AppBar, Toolbar, Typography } from "@material-ui/core";
+// import { makeStyles } from "@material-ui/core/styles";
+
+// const useStyles = makeStyles(() => ({
+//     typographyStyles: {
+//         flex:1
+//     }
+// }))
+
 function Nav() {
     return (
-        <div>
-            <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/products">Browse</a></li>
-                <li><a href="/cart">Cart</a></li>
-                <li><a href="/signup">Sign Up</a></li>
-                <li><a href="/mymarket">My Market</a></li>
-                <li><a href="/login">Login</a></li>
-            </ul>
-        </div>
+        <AppBar position="static">
+            <Toolbar>
+                <Typography>Coin Créatif</Typography>
+            </Toolbar>
+        </AppBar>
     )
 }
 
