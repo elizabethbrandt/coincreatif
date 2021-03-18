@@ -1,1 +1,0 @@
-// Fetch your Stripe publishable key to initialize Stripe.justify
