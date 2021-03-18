@@ -3,6 +3,7 @@ import { withRouter, Redirect } from "react-router";
 import app from "../../utils/base";
 import { AuthContext } from "../../utils/Auth";
 import IfUnAuthed from '../../utils/google';
+import IfUnAuthedFB from '../../utils/facebook'
 
 
 const Login = ({ history }) => {
@@ -46,9 +47,12 @@ const Login = ({ history }) => {
             SIGNUP
         </p>
 
-        <button>
+        <div>
         <IfUnAuthed />
-        </button>
+        </div>
+        <div>
+          <IfUnAuthedFB />
+        </div>
     </div>
     
   );
