@@ -23,11 +23,8 @@
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
-<<<<<<< HEAD
     "stripe": "^8.138.0",
-=======
     "uuid": "^8.3.2",
->>>>>>> da3144be08630567c9bcab15f17717e144047d15
     "web-vitals": "^1.1.0"
   },
   "scripts": {
