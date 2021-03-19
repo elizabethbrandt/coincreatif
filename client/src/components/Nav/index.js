@@ -73,7 +73,7 @@ export default function SearchAppBar() {
         <Toolbar>
             <TemporaryDrawer/>
           <Typography className={classes.title} variant="h6" noWrap>
-            Coin Creatif
+            Coin Créatif
           </Typography>
           
           <div className={classes.search}>

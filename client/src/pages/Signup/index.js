@@ -2,7 +2,6 @@ import React, { useCallback } from "react";
 import { withRouter } from "react-router";
 import app from "../../utils/base";
 
-
 const SignUp = ({ history }) => {
   const handleSignUp = useCallback(async event => {
     event.preventDefault();
@@ -31,8 +30,9 @@ const SignUp = ({ history }) => {
         </label>
         <button type="submit">Sign Up</button>
       </form>
+
         <p>Already have an account yet?
-            LOGIN
+          <a href="/login">Login</a>
         </p>
 
     </div>

@@ -10,7 +10,7 @@ import Signup from './pages/Signup';
 import User from './pages/UserMarket';
 
 import { AuthProvider } from "./utils/Auth";
-import PrivateRoute from "./utils/PrivateRoute";
+//import PrivateRoute from "./utils/PrivateRoute";
 
 function App() {
   return (
@@ -20,7 +20,7 @@ function App() {
         <Nav />
         <Switch>
 
-          <PrivateRoute exact path="/" component={Home} />
+          <Route exact path="/" component={Home} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/mymarket" component={User} />
           <Route exact path="/signup" component={Signup} />

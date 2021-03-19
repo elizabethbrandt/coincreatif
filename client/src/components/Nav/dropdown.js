@@ -113,7 +113,10 @@ export default function TemporaryDrawer() {
           </ListItem>
         ))}
         {['Logout'].map((text) => (
-          <ListItem button component="a" href="/logout" key={text}
+          <ListItem 
+          button 
+          component="a" href="/login" 
+          key={text}
           onClick={() => app.auth().signOut()}>
             <ListItemIcon><ExitToAppIcon />
             </ListItemIcon>
@@ -126,7 +129,7 @@ export default function TemporaryDrawer() {
 
   return (
     <div>
-      {[''].map((anchor) => (
+      {['left'].map((anchor) => (
         <React.Fragment key={anchor}>
           <Button onClick={toggleDrawer(anchor, true)}>{anchor}<ListIcon fontSize="large" /></Button>
           <Drawer anchor={anchor} open={state[anchor]} onClose={toggleDrawer(anchor, false)}>
