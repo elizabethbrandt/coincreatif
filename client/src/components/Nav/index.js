@@ -1,4 +1,4 @@
-import { AppBar, Toolbar, Typography } from "@material-ui/core";
+import { AppBar, Button, Toolbar, Typography } from "@material-ui/core";
 // import { makeStyles } from "@material-ui/core/styles";
 
 // const useStyles = makeStyles(() => ({
@@ -11,7 +11,15 @@ function Nav() {
     return (
         <AppBar position="static">
             <Toolbar>
-                <Typography>Coin Créatif</Typography>
+                <Typography varient="h6">
+                    Coin Créatif
+                </Typography>
+                <Button color="inherit">
+                    Login
+                </Button>
+                <Button color="inherit">
+                    Cart
+                </Button>
             </Toolbar>
         </AppBar>
     )

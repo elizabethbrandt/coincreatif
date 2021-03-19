@@ -1,8 +1,13 @@
 const express = require("express");
-
-const routes = require("./routes/uploadRoutes");
 const app = express();
 const cors = require("cors");
+
+const PORT = process.env.PORT || 3001;
+const imageRouter = require("./routes/imageRoute");
+const mongoose = require("mongoose");
+
+// Adding the middleware
+
 const dbConfig = require("./config/db");
 
 const api = require("./routes/uploadRoutes");
@@ -19,17 +24,19 @@ require("./config/db");
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 
-
 // Add routes, both API and view
-app.use("/api", ImageUploadRouter);
+app.use("/", imageRouter);
 app.use(cors());
 app.use("/public", express.static("public"));
-app.use("/api", api);
+
+// Connection to MongDB
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/coincreatif");
 
 app.use((req, res, next) => {
   res.locals.stringify = JSON.stringify;
