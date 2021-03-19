@@ -2,22 +2,29 @@ import React, { useState } from "react";
 import axios from "axios";
 
 function ImageUpload() {
+  // Sets a state that manages the file value and decoded image file
   const [fileData, setFileData] = useState();
+
+  // Sets a state that reads the image path on every change and sets it as the file input field value
   const [images, setFile] = useState("");
 
+  // Function to handle the file change where files[0] holds the full information of the uploaded image
   const handleFileChange = e => {
-    setFileData(e.target.files[0]);
-    setFile(e.target.value);
+    setFileData(e.target.files[0]); // Full information about the image
+    setFile(e.target.value); // Value of the image
   };
 
-  const handleSubmit = async(e) => {
+  // Sends image to the server
+  const handleUpload = (e) => {
     e.preventDefault();
 
     const formData = new FormData();
 
     formData.append("image", fileData);
 
-    await axios.post("/api/images", formData)
+    console.log("Image", fileData);
+
+    axios.post("/mymarket", formData)
       .then((res) => console.log("res", res.data))
       .catch((error) => console.error(error));
   };
@@ -25,13 +32,24 @@ function ImageUpload() {
   return(
     <div className="container">
       <div className="row">
-        <form onSubmit={handleSubmit}>
+        {/* Post route action for image to upload using multer */}
+        <form action="/mymarket" method="post" enctype="multipart/form-data">
           <h3>Upload Files</h3>
+          {/* <img src="/images/${filename}.jpg" alt="${imagename}" /> */}
           <div className="form-group">
-              <input type="file" name="imgCollection" onChange={handleFileChange} value={images}multiple accept="image/*" placeholder="upload image" isrequired="true" />
+              <input
+                type="file"
+                value={images}
+                name="avatar"
+                accept="image/*"
+                onChange={handleFileChange}
+                placeholder="upload image"
+                isRequired="true"
+                multiple
+              />
           </div>
           <div className="form-group">
-            <button className="btn btn-primary" type="submit">Upload</button>
+            <input type="submit" onClick={handleUpload}/>
           </div>
         </form>
       </div>
