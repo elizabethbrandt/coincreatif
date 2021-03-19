@@ -1,5 +1,5 @@
 import UploadImage from "../controllers/uploadImage";
-import parser from "../middleware/cloudinaryConfig"
+import parser from "../middleware/cloudinaryConfig";
 const router = require("express").Router();
 
 router.post("/image", parser.single("image"), UploadImage);
