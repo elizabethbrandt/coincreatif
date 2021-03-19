@@ -16,6 +16,8 @@ import FilterVintageIcon from '@material-ui/icons/FilterVintage';
 import LooksIcon from '@material-ui/icons/Looks';
 import ListIcon from '@material-ui/icons/List';
 
+import app from "../../utils/base";
+
 const useStyles = makeStyles({
   list: {
     width: 250,
@@ -111,8 +113,10 @@ export default function TemporaryDrawer() {
           </ListItem>
         ))}
         {['Logout'].map((text) => (
-          <ListItem button component="a" href="/logout" key={text}>
-            <ListItemIcon><ExitToAppIcon /></ListItemIcon>
+          <ListItem button component="a" href="/logout" key={text}
+          onClick={() => app.auth().signOut()}>
+            <ListItemIcon><ExitToAppIcon />
+            </ListItemIcon>
             <ListItemText primary={text} />
           </ListItem>
         ))}
