@@ -49,7 +49,7 @@ function ImageUpload() {
               />
           </div>
           <div className="form-group">
-            <input type="submit" onClick={handleUpload}/>
+            <input type="submit"/>
           </div>
         </form>
       </div>
