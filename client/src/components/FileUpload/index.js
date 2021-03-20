@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import axios from "axios";
+// import axios from "axios";
 
 function ImageUpload() {
   // Sets a state that manages the file value and decoded image file
@@ -15,19 +15,19 @@ function ImageUpload() {
   };
 
   // Sends image to the server
-  const handleUpload = (e) => {
-    e.preventDefault();
+  // const handleUpload = (e) => {
+  //   e.preventDefault();
 
-    const formData = new FormData();
+  //   const formData = new FormData();
 
-    formData.append("image", fileData);
+  //   formData.append("image", fileData);
 
-    console.log("Image", fileData);
+  //   console.log("Image", fileData);
 
-    axios.post("/mymarket", formData)
-      .then((res) => console.log("res", res.data))
-      .catch((error) => console.error(error));
-  };
+  //   axios.post("/mymarket", formData)
+  //     .then((res) => console.log("res", res.data))
+  //     .catch((error) => console.error(error));
+  // };
 
   return(
     <div className="container">
