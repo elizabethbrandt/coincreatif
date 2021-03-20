@@ -22,15 +22,8 @@
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
-<<<<<<< HEAD
-    "react-stripe-checkout": "^2.6.3",
-    "react-stripe-elements": "^6.1.2",
-    "react-toastify": "^7.0.3",
-    "stripe": "^8.138.0",
-=======
     "stripe": "^8.138.0",
     "uuid": "^8.3.2",
->>>>>>> 7f5202c31dbbb682fd12e8423e88b1df4411babf
     "web-vitals": "^1.1.0"
   },
   "scripts": {

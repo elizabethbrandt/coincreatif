@@ -1,13 +1,6 @@
 import React from 'react';
 import clsx from 'clsx';
-import { makeStyles } from '@material-ui/core/styles';
-import Drawer from '@material-ui/core/Drawer';
-import Button from '@material-ui/core/Button';
-import List from '@material-ui/core/List';
-import Divider from '@material-ui/core/Divider';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
+import { makeStyles, Drawer, Button, List, Divider, ListItem, ListItemText, ListItemIcon } from '@material-ui/core';
 import HomeTwoToneIcon from '@material-ui/icons/HomeTwoTone';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import MeetingRoomIcon from '@material-ui/icons/MeetingRoom';
@@ -129,14 +122,12 @@ export default function TemporaryDrawer() {
 
   return (
     <div>
-      {['left'].map((anchor) => (
-        <React.Fragment key={anchor}>
-          <Button onClick={toggleDrawer(anchor, true)}>{anchor}<ListIcon fontSize="large" /></Button>
-          <Drawer anchor={anchor} open={state[anchor]} onClose={toggleDrawer(anchor, false)}>
-            {list(anchor)}
+        <React.Fragment key={'left'}>
+          <Button onClick={toggleDrawer('left', true)}><ListIcon fontSize="large" /></Button>
+          <Drawer anchor={'left'} open={state['left']} onClose={toggleDrawer('left', false)}>
+            {list('left')}
           </Drawer>
         </React.Fragment>
-      ))}
     </div>
   );
 }
