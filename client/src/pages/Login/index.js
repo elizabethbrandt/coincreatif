@@ -3,6 +3,7 @@ import { withRouter, Redirect } from "react-router";
 import app from "../../utils/base";
 import { AuthContext } from "../../utils/Auth";
 import IfUnAuthed from '../../utils/google';
+import IfUnAuthedFB from '../../utils/facebook';
 
 
 const Login = ({ history }) => {
@@ -43,12 +44,16 @@ const Login = ({ history }) => {
         <button type="submit">Log in</button>
       </form>
       <p>Don't have an account yet?
-            SIGNUP
+            <a href="/signup">Signup</a>
         </p>
 
-        <button>
+        <div>
         <IfUnAuthed />
-        </button>
+        </div>
+        <div>
+        <IfUnAuthedFB />
+        </div>
+        <p>You do not need to sign up if you have a google or facebook account</p>
     </div>
     
   );
