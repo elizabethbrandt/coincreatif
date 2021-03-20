@@ -14,7 +14,6 @@ function IfUnAuthed () {
         >
           Sign in with Google
         </button>
-
     );
   };
 
