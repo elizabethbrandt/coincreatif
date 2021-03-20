@@ -3,11 +3,14 @@ const Schema = mongoose.Schema;
 
 const ImageUpload = new Schema(
   {
-    image: { type: String, required: true },
+    image: {
+      type: String,
+      required: true
+    },
   },
   { timestamps: true }
 );
 
-const User = mongoose.model("imageUpload", ImageUpload);
+const image = mongoose.model("ImageUpload", ImageUpload);
 
-module.exports = User;
+module.exports = image;
