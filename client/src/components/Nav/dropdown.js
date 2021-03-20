@@ -122,14 +122,12 @@ export default function TemporaryDrawer() {
 
   return (
     <div>
-      {['left'].map((anchor) => (
-        <React.Fragment key={anchor}>
-          <Button onClick={toggleDrawer(anchor, true)}><ListIcon fontSize="large" /></Button>
-          <Drawer anchor={anchor} open={state[anchor]} onClose={toggleDrawer(anchor, false)}>
-            {list(anchor)}
+        <React.Fragment key={'left'}>
+          <Button onClick={toggleDrawer('left', true)}><ListIcon fontSize="large" /></Button>
+          <Drawer anchor={'left'} open={state['left']} onClose={toggleDrawer('left', false)}>
+            {list('left')}
           </Drawer>
         </React.Fragment>
-      ))}
     </div>
   );
 }
