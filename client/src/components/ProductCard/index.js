@@ -3,17 +3,9 @@ import { Card, CardMedia, CardActions, CardContent, Button, Typography, IconButt
 import AddShoppingCartOutlinedIcon from '@material-ui/icons/AddShoppingCartOutlined';
 
 const useStyles = makeStyles({
-    bullet: {
-        display: 'inline-block',
-        margin: '0 2px',
-        transform: 'scale(0.8)',
-    },
-    pos: {
-        marginBottom: 12,
-    },
     media: {
         height: "100px",
-        paddingTop: '56.25%', // 16:9
+        paddingTop: '56.25%'
     },
 });
 
