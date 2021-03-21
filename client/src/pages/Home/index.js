@@ -3,7 +3,8 @@ import Carousel from 'react-material-ui-carousel';
 import autoBind from 'auto-bind';
 import {
     Paper
-} from '@material-ui/core'
+} from '@material-ui/core';
+import SimplePaper from './aboutUs';
 
 function Project(props) {
     return (
@@ -16,7 +17,12 @@ function Project(props) {
         >
             <h2>{props.item.name}</h2>
 
-            <img alt="product" src={props.item.image} style={{height: props.item.height, maxHeight: props.item.maxHeight, width: props.item.width, objectFit: props.item.objectFit}}/>
+            <img alt="product" 
+                src={props.item.image} 
+                style={{
+                height: "500px",
+                width: "100%",
+                backgroundSize: "cover" }}/>
 
             <p>{props.item.description}</p> 
         </Paper>
@@ -24,34 +30,20 @@ function Project(props) {
 }
 
 const items = [
+
     {
-        image: "https://www.nasa.gov/sites/default/files/thumbnails/image/blackhole.png",
-        height: "auto",
-        maxHeight: "300px",
-        width: "100%",
-        objectFit: "cover"
+        image: "https://images.pexels.com/photos/102127/pexels-photo-102127.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     },
     {
-        image: "https://www.nasa.gov/sites/default/files/styles/full_width/public/thumbnails/image/2008_m87_labeled.jpg?itok=0OP-A6Eq",
-        height: "auto",
-        maxHeight: "300px",
-        width: "100%",
-        objectFit: "cover"
+        image: "https://images.pexels.com/photos/2973392/pexels-photo-2973392.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     },
     {
-        image: "https://www.nasa.gov/sites/default/files/thumbnails/image/blackhole.png",
-        height: "auto",
-        maxHeight: "300px",
-        width: "100%",
-        objectFit: "cover"
+        image: "https://images.pexels.com/photos/1090638/pexels-photo-1090638.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     },
     {
-        image: "https://www.nasa.gov/sites/default/files/styles/full_width/public/thumbnails/image/2008_m87_labeled.jpg?itok=0OP-A6Eq",
-        height: "auto",
-        maxHeight: "300px",
-        width: "100%",
-        objectFit: "cover"
+        image: "https://images.pexels.com/photos/1035683/pexels-photo-1035683.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     }
+
 ]
 
 export default class MyProjectsExample extends React.Component {
@@ -75,7 +67,7 @@ export default class MyProjectsExample extends React.Component {
                 <h2>Coin Créatif</h2>
 
                 <Carousel
-                    style={{ color: "#494949" }}
+                    style={{ }}
                     className="SecondExample"
                     autoPlay={this.state.autoPlay}
                     animation={this.state.animation}
@@ -91,6 +83,7 @@ export default class MyProjectsExample extends React.Component {
                     }
                 </Carousel>
 
+                <SimplePaper/>
             </div>
         )
     }
