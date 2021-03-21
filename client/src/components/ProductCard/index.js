@@ -1,10 +1,6 @@
 import { makeStyles } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
-
+import { Card, CardMedia, CardActions, CardContent, Button, Typography, IconButton } from '@material-ui/core';
+import AddShoppingCartOutlinedIcon from '@material-ui/icons/AddShoppingCartOutlined';
 
 const useStyles = makeStyles({
     bullet: {
@@ -12,37 +8,38 @@ const useStyles = makeStyles({
         margin: '0 2px',
         transform: 'scale(0.8)',
     },
-    title: {
-        fontSize: 14,
-    },
     pos: {
         marginBottom: 12,
+    },
+    media: {
+        height: "100px",
+        paddingTop: '56.25%', // 16:9
     },
 });
 
 
-const ProductCard = () => {
+const ProductCard = (props) => {
     const classes = useStyles();
+    const {itemName, imageId, price} = props;
     return (
-        <Card className={classes.root}>
+        <Card>
+            <CardMedia
+                className={classes.media}
+                image={imageId}
+            />
             <CardContent>
-                <Typography className={classes.title} color="textSecondary" gutterBottom>
-                    Category
-        </Typography>
-                <Typography variant="h5" component="h2">
-                    Item Name
-        </Typography>
-                <Typography className={classes.pos} color="textSecondary">
-                    Seller
-        </Typography>
-                <Typography variant="body2" component="p">
-                    Description
-                </Typography>
+                <Typography variant="h5" component="h2" itemName={itemName} />
+                <Typography variant="body2" component="p" price={price} />
             </CardContent>
+
             <CardActions>
-                <Button size="small" variant="outlined">View Item</Button>
-                {/* add icon here instead */}
-                <Button size="small" variant="outlined">Add to cart</Button>
+                <Button size="small" variant="outlined" href="/">View Item</Button>
+                <IconButton aria-label="settings">
+                </IconButton>
+
+                <IconButton aria-label="settings">
+                    <AddShoppingCartOutlinedIcon fontSize="large" />
+                </IconButton>
             </CardActions>
         </Card>
     )
