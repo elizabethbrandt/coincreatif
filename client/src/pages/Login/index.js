@@ -7,8 +7,8 @@ import IfUnAuthedFB from '../../utils/facebook';
 import Button from '@material-ui/core/Button';
 import { TextField, Typography } from "@material-ui/core";
 import Link from '@material-ui/core/Link';
-import Card from '@material-ui/core/Card';
-import FormControl from '@material-ui/core/FormControl'
+import Paper from '@material-ui/core/Paper';
+//import FormControl from '@material-ui/core/FormControl'
 
 
 const Login = ({ history }) => {
@@ -35,37 +35,37 @@ const Login = ({ history }) => {
   }
 
   return (
-    <Card style={{margin:"30px", padding:"15px"}} >
+    <Paper style={{
+      margin:"30px", 
+      padding:"15px",  
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center"}} >
+        
       <h1>Log in</h1>
-      <FormControl onSubmit={handleLogin}>
-        <label>
-          Email
+
+      <form onSubmit={handleLogin}>
 
           <TextField 
           name="email" 
           type="email" 
-          placeholder="Email" 
+          placeholder="Required" 
           required
           //id="outlined-required"
-          label="Required"
+          label="Email"
           variant="outlined">
 
           </TextField>
-        </label>
-
-        <label>
-          Password
 
           <TextField 
           name="password" 
           type="password" 
-          placeholder="Password" 
+          placeholder="Required" 
           required
           //id="outlined-required"
-          label="Required"
+          label="Password"
           variant="outlined">
           </TextField>
-        </label>
 
         <Button 
         type="submit" 
@@ -75,7 +75,7 @@ const Login = ({ history }) => {
         >
           Log in
         </Button>
-      </FormControl>
+      </form>
 
         <Typography>Don't have an account yet?
             <Link href="/signup">Signup</Link>
@@ -88,8 +88,9 @@ const Login = ({ history }) => {
         <Button variant="contained" color="primary" disableElevation>
         <IfUnAuthedFB />
         </Button>
+
         <p>You do not need to sign up if you have a google or facebook account</p>
-    </Card>
+    </Paper>
     
   );
 };
