@@ -22,7 +22,8 @@ function Project(props) {
                 style={{
                 height: "500px",
                 width: "100%",
-                backgroundSize: "cover" }}/>
+                backgroundSize: "cover",
+                }}/>
 
             <p>{props.item.description}</p> 
         </Paper>
@@ -33,6 +34,7 @@ const items = [
 
     {
         image: "https://images.pexels.com/photos/102127/pexels-photo-102127.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        
     },
     {
         image: "https://images.pexels.com/photos/2973392/pexels-photo-2973392.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
@@ -63,18 +65,15 @@ export default class MyProjectsExample extends React.Component {
 
     render() {
         return (
-            <div style={{ color: "#494949" }}>
-                <h2>Coin Créatif</h2>
+            <div>
 
                 <Carousel
-                    style={{ }}
                     className="SecondExample"
                     autoPlay={this.state.autoPlay}
                     animation={this.state.animation}
                     indicators={this.state.indicators}
                     timeout={this.state.timeout}
                     navButtonsAlwaysInvisible={this.state.navButtonsAlwaysInvisible}
-                
                 >
                     {
                         items.map((item, index) => {

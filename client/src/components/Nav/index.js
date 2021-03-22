@@ -11,7 +11,7 @@ import IconButton from '@material-ui/core/IconButton';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    flexGrow: 1,
+    flexGrow: 1
   },
   menuButton: {
     marginRight: theme.spacing(2),
@@ -72,8 +72,11 @@ export default function SearchAppBar() {
       <AppBar position="static">
         <Toolbar>
             <TemporaryDrawer/>
-          <Typography className={classes.title} variant="h6" noWrap>
-            Coin Créatif
+          <Typography 
+          className={classes.title} 
+          variant="h6" 
+          noWrap
+          image="https://images.pexels.com/photos/5874582/pexels-photo-5874582.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500">
           </Typography>
           
           <div className={classes.search}>

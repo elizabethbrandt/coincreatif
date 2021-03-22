@@ -1,6 +1,10 @@
+import { FormControl, TextField, Typography } from "@material-ui/core";
 import React, { useCallback } from "react";
 import { withRouter } from "react-router";
 import app from "../../utils/base";
+import Button from '@material-ui/core/Button';
+import Link from '@material-ui/core/Link';
+import Card from '@material-ui/core/Card';
 
 const SignUp = ({ history }) => {
   const handleSignUp = useCallback(async event => {
@@ -17,25 +21,49 @@ const SignUp = ({ history }) => {
   }, [history]);
 
   return (
-    <div>
+    <Card style={{margin:"30px", padding:"15px"}}>
       <h1>Sign up</h1>
-      <form onSubmit={handleSignUp}>
+      <FormControl onSubmit={handleSignUp}>
         <label>
           Email
-          <input name="email" type="email" placeholder="Email" />
+
+          <TextField 
+          name="email" 
+          type="email" 
+          placeholder="Email"
+          required
+          //id="outlined-required"
+          label="Required"
+          variant="outlined" />
         </label>
+
         <label>
           Password
-          <input name="password" type="password" placeholder="Password" />
+
+          <TextField 
+          name="password" 
+          type="password" 
+          placeholder="Password" 
+          required
+          //id="outlined-required"
+          label="Required"
+          variant="outlined"/>
         </label>
-        <button type="submit">Sign Up</button>
-      </form>
 
-        <p>Already have an account yet?
-          <a href="/login">Login</a>
-        </p>
+        <Button 
+        type="submit"
+        variant="contained" 
+        color="primary" 
+        disableElevation
+        >
+          Sign Up</Button>
+      </FormControl>
 
-    </div>
+        <Typography>Already have an account yet?
+          <Link href="/login">Login</Link>
+        </Typography>
+
+    </Card>
   );
 };
 
