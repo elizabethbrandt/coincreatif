@@ -9,6 +9,7 @@ import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
 import TemporaryDrawer from './dropdown';
 import IconButton from '@material-ui/core/IconButton';
 
+
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1
@@ -70,30 +71,41 @@ export default function SearchAppBar() {
   return (
     <div className={classes.root}>
       <AppBar position="static">
+
         <Toolbar>
             <TemporaryDrawer/>
+
+           
+
           <Typography 
           className={classes.title} 
           variant="h6" 
           noWrap
-          image="https://images.pexels.com/photos/5874582/pexels-photo-5874582.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500">
+          >
+
           </Typography>
           
           <div className={classes.search}>
             <div className={classes.searchIcon}>
               <SearchIcon />
             </div>
+
             <InputBase
               placeholder="Search…"
               classes={{
-                root: classes.inputRoot,
-                input: classes.inputInput,
+              root: classes.inputRoot,
+              input: classes.inputInput,
               }}
               inputProps={{ 'aria-label': 'search' }}
             />
           </div>
 
-          <IconButton aria-label="delete" component="a" href="/cart" className={classes.margin}>
+          <IconButton 
+          aria-label="delete" 
+          component="a" 
+          href="/cart" 
+          className={classes.margin}>
+
             <ShoppingCartOutlinedIcon fontSize="large" />
           </IconButton>
 

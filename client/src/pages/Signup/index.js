@@ -36,7 +36,6 @@ const SignUp = ({ history }) => {
           type="email" 
           placeholder="Required"
           required
-          //id="outlined-required"
           label="Email"
           variant="outlined" />
 
@@ -45,7 +44,6 @@ const SignUp = ({ history }) => {
           type="password" 
           placeholder="Required" 
           required
-          //id="outlined-required"
           label="Password"
           variant="outlined"/>
 

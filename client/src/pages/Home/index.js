@@ -1,9 +1,7 @@
 import React from 'react';
 import Carousel from 'react-material-ui-carousel';
 import autoBind from 'auto-bind';
-import {
-    Paper
-} from '@material-ui/core';
+import {Paper} from '@material-ui/core';
 import SimplePaper from './aboutUs';
 
 function Project(props) {
@@ -20,9 +18,11 @@ function Project(props) {
             <img alt="product" 
                 src={props.item.image} 
                 style={{
-                height: "500px",
+                height: "auto",
+                maxHeight: "550px",
                 width: "100%",
-                backgroundSize: "cover",
+                objectFit: "cover",
+                display: "flex"
                 }}/>
 
             <p>{props.item.description}</p> 
@@ -33,17 +33,16 @@ function Project(props) {
 const items = [
 
     {
-        image: "https://images.pexels.com/photos/102127/pexels-photo-102127.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-        
+        image: "https://images.pexels.com/photos/4348401/pexels-photo-4348401.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
     },
     {
-        image: "https://images.pexels.com/photos/2973392/pexels-photo-2973392.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        image: "https://images.pexels.com/photos/1350789/pexels-photo-1350789.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
     },
     {
-        image: "https://images.pexels.com/photos/1090638/pexels-photo-1090638.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        image: "https://images.pexels.com/photos/1676126/pexels-photo-1676126.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260",
     },
     {
-        image: "https://images.pexels.com/photos/1035683/pexels-photo-1035683.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        image: "https://images.pexels.com/photos/6157712/pexels-photo-6157712.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260",
     }
 
 ]
