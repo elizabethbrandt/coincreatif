@@ -1,69 +1,40 @@
-import React from 'react';
-import { ButtonBase, Grid, makeStyles, Paper, Typography } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
+import { Card, CardMedia, CardActions, CardContent, Button, Typography, IconButton } from '@material-ui/core';
+import AddShoppingCartOutlinedIcon from '@material-ui/icons/AddShoppingCartOutlined';
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
-    overflow: 'hidden',
-    padding: theme.spacing(1, 1),
-  },
-  paper: {
-    maxWidth: 400,
-    margin: 'auto',
-    padding: theme.spacing(4),
-  },
-  image: {
-    width: 128,
-    height: 128,
-  },
-  img: {
-    margin: 'auto',
-    display: 'block',
-    maxWidth: '100%',
-    maxHeight: '100%',
-  },
-}));
+const useStyles = makeStyles({
+    media: {
+        height: "100px",
+        paddingTop: '56.25%'
+    },
+});
 
-function ProductCard() {
-  const classes = useStyles();
 
-  return (
-    <div className={classes.root}>
-      <Paper className={classes.paper}>
-        <Grid container wrap="nowrap" spacing={6}>
-          <Grid item>
-            <ButtonBase className={classes.image}>
-                {/* Change src to dynamically update per user's mongodb collection */}
-              <img className={classes.img} alt="Product" src="../images/IMG_0475.jpg" />
-            </ButtonBase>
-          </Grid>
-        <Grid item>
-            <Grid item>
-              <Typography variant="subtitle1">$99.00</Typography>
-            </Grid>
-            <Grid item xs container direction="column" spacing={2}>
-              <Grid item xs>
-                <Typography gutterBottom variant="subtitle1">
-                  Product Name
-                </Typography>
-                <Typography variant="body2" gutterBottom>
-                  Product Description
-                </Typography>
-                <Typography variant="body2" color="textSecondary">
-                  QTY:
-                </Typography>
-              </Grid>
-              <Grid item>
-                <Typography variant="body2" style={{ cursor: 'pointer' }}>
-                  Remove
-                </Typography>
-              </Grid>
-            </Grid>
-          </Grid>
-        </Grid>
-      </Paper>
-    </div>
-  );
+const ProductCard = (props) => {
+    const classes = useStyles();
+    const {itemName, imageId, price} = props;
+    return (
+        <Card>
+            <CardMedia
+                className={classes.media}
+                image={imageId}
+            />
+            <CardContent>
+                <Typography variant="h5" component="h2">{itemName}</Typography>
+                <Typography variant="body2" component="p">${price}</Typography>
+            </CardContent>
+
+            <CardActions>
+                <Button size="small" variant="outlined" href="/">View Item</Button>
+                <IconButton aria-label="settings">
+                </IconButton>
+
+                <IconButton aria-label="settings">
+                    <AddShoppingCartOutlinedIcon fontSize="large" />
+                </IconButton>
+            </CardActions>
+        </Card>
+    )
 }
 
 export default ProductCard;
