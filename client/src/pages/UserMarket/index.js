@@ -1,11 +1,43 @@
-import FileUpload from "../../components/FileUpload";
+import React from "react";
+import { Grid, makeStyles, Paper, Typography } from "@material-ui/core";
+import ProductCard from "../../components/ProductCard";
+import ProfileCard from "../../components/ProfileCard";
+import UploadModal from "../../components/UploadModal";
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    flexGrow: 1,
+  },
+  paper: {
+    padding: theme.spacing(1),
+    textAlign: 'center',
+    color: theme.palette.text.secondary,
+  },
+}));
 
 function Market() {
+  const classes = useStyles();
+
   return (
-    <>
-    <FileUpload />
-    </>
-  )
+    <div className={classes.root}>
+      <Grid container spacing={2}>
+        <Grid item xs>
+          <ProfileCard />
+        </Grid>
+        <Grid item xs>
+          <Paper className={classes.paper}>
+            <Typography variant ="h4">
+              MY PRODUCTS
+            </Typography>
+            <UploadModal />
+            <ProductCard />
+            <ProductCard />
+            <ProductCard />
+          </Paper>
+        </Grid>
+      </Grid>
+    </div>
+  );
 }
 
 export default Market;
