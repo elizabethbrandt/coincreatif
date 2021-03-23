@@ -1,8 +1,8 @@
-const stripe = require("sk_test_51IWR29EPNyptS8EdCfVSZ2aQ2w8fNLhGp1VFdjwH2u1OP8xurh4JNLBLULBPj3NIdlH2EeylurRvGxBPDnXUFHyP00gSu28CEU");
+const stripe = require(process.env.STRIPE_SECRECT_KEY);
 
 const createPaymentSession = async (req, res) => {
     let { cart, customer_email } = req.body;
-    
+
     line_items = cart.map((item) => {
     return {
       name: item.title,
@@ -32,5 +32,4 @@ const createPaymentSession = async (req, res) => {
 
 module.exports = { createPaymentSession };
 
- 
-    
+
