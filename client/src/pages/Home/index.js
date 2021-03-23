@@ -1,5 +1,5 @@
 import React from 'react';
-import Carousel from 'react-material-ui-carousel';
+// import Carousel from 'react-material-ui-carousel';
 import autoBind from 'auto-bind';
 import {Paper} from '@material-ui/core';
 import SimplePaper from './aboutUs';
@@ -15,8 +15,8 @@ function Project(props) {
         >
             <h2>{props.item.name}</h2>
 
-            <img alt="product" 
-                src={props.item.image} 
+            <img alt="product"
+                src={props.item.image}
                 style={{
                 height: "auto",
                 maxHeight: "550px",
@@ -25,7 +25,7 @@ function Project(props) {
                 display: "flex"
                 }}/>
 
-            <p>{props.item.description}</p> 
+            <p>{props.item.description}</p>
         </Paper>
     )
 }
@@ -66,7 +66,7 @@ export default class MyProjectsExample extends React.Component {
         return (
             <div>
 
-                <Carousel
+                {/* <Carousel
                     className="SecondExample"
                     autoPlay={this.state.autoPlay}
                     animation={this.state.animation}
@@ -79,7 +79,7 @@ export default class MyProjectsExample extends React.Component {
                             return <Project item={item} key={index} />
                         })
                     }
-                </Carousel>
+                </Carousel> */}
 
                 <SimplePaper/>
             </div>
