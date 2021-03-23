@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, TextField, makeStyles } from '@material-ui/core';
+import { Checkbox, FormGroup, FormControlLabel, FormControl, FormLabel, Grid, TextField, makeStyles } from '@material-ui/core';
 import PropTypes from "prop-types";
 import NumberFormat from "react-number-format";
 
@@ -87,15 +87,15 @@ function ProductInfo() {
               label="Product"
               placeholder="Product Name"
               variant="outlined"
-            />
-          <TextField
-              required
-              id="outlined-required"
-              label="QTY"
-              type="number"
-              placeholder="Total in stock"
-              variant="outlined"
           />
+          <FormControl component="fieldset">
+            <FormControlLabel
+            value="end"
+            control={<Checkbox color="primary" />}
+            label="Available?"
+            labelPlacement="end"
+            />
+          </FormControl>
         </Grid>
       </Grid>
     </form>
