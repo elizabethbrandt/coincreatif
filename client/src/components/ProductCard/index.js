@@ -20,8 +20,8 @@ const ProductCard = (props) => {
                 image={imageId}
             />
             <CardContent>
-                <Typography variant="h5" component="h2" itemName={itemName} />
-                <Typography variant="body2" component="p" price={price} />
+                <Typography variant="h5" component="h2">{itemName}</Typography>
+                <Typography variant="body2" component="p">${price}</Typography>
             </CardContent>
 
             <CardActions>

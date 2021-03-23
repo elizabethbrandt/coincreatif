@@ -3,6 +3,7 @@ const app = express();
 const cors = require("cors");
 const PORT = process.env.PORT || 3001;
 const imageRouter = require("./routes/imageRoute");
+const routes = require("./routes");
 const mongoose = require("mongoose");
 
 require("dotenv").config();
@@ -18,6 +19,7 @@ if (process.env.NODE_ENV === "production") {
 
 // Add routes, both API and view
 app.use("/", imageRouter);
+app.use(routes);
 app.use(cors());
 app.use(express.static("public"));
 
