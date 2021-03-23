@@ -1,6 +1,10 @@
+import { TextField, Typography } from "@material-ui/core";
 import React, { useCallback } from "react";
 import { withRouter } from "react-router";
 import app from "../../utils/base";
+import Button from '@material-ui/core/Button';
+import Link from '@material-ui/core/Link';
+import Paper from '@material-ui/core/Paper';
 
 const SignUp = ({ history }) => {
   const handleSignUp = useCallback(async event => {
@@ -17,25 +21,46 @@ const SignUp = ({ history }) => {
   }, [history]);
 
   return (
-    <div>
+    <Paper style={{
+      margin:"30px", 
+      padding:"15px", 
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center"}}>
+
       <h1>Sign up</h1>
+
       <form onSubmit={handleSignUp}>
-        <label>
-          Email
-          <input name="email" type="email" placeholder="Email" />
-        </label>
-        <label>
-          Password
-          <input name="password" type="password" placeholder="Password" />
-        </label>
-        <button type="submit">Sign Up</button>
+          <TextField 
+          name="email" 
+          type="email" 
+          placeholder="Required"
+          required
+          label="Email"
+          variant="outlined" />
+
+          <TextField 
+          name="password" 
+          type="password" 
+          placeholder="Required" 
+          required
+          label="Password"
+          variant="outlined"/>
+
+        <Button 
+        type="submit"
+        variant="contained" 
+        color="primary" 
+        disableElevation
+        >
+          Sign Up</Button>
       </form>
 
-        <p>Already have an account yet?
-          <a href="/login">Login</a>
-        </p>
+        <Typography>Already have an account yet?
+          <Link href="/login">Login</Link>
+        </Typography>
 
-    </div>
+    </Paper>
   );
 };
 
