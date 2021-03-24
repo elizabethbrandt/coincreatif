@@ -5,33 +5,8 @@ const PORT = process.env.PORT || 3001;
 const imageRouter = require("./routes/imageRoute");
 const routes = require("./routes");
 const mongoose = require("mongoose");
-const stripe = require('stripe')('process.env_STRIPE_SECRET_KEY');
 
 require("dotenv").config();
-
-app.post('/create-checkout-session', async (req, res) => {
-  const session = await stripe.checkout.session.create({
-    payment_method_types: ['card'],
-    line_items: [
-      {
-        price_data: {
-          currency: 'usd',
-          product_data: {
-            name: 'Canvas Painting',
-            images: ['https://imgur.com/amPjG9N'],
-          },
-          unit_amount: 2400,
-        },
-        quantity: 1,
-      },
-    ],
-    mode: 'payment',
-    success_url: 'https://coincreatif/client/public/success.html',
-    cancel_url: 'https://coincreatif/client/public/cancel.html'
-  });
-
-   res.json({ id: session.id });
-
 
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));

@@ -1,5 +1,6 @@
 import React from "react";
 import { Avatar, Grid, makeStyles, Paper, Typography } from '@material-ui/core';
+import FavoriteCard from "../FavoritesCard";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -31,15 +32,23 @@ function ProfileCard() {
         <Grid container spacing={2}>
           <Grid item>
             {/* Change src to dynamically update according to a user image/avatar */}
-            <Avatar alt="Profile" src="../apple-touch-icon.png" className={classes.large}/>
+            <Avatar
+              alt="Profile"
+              src="https://avataaars.io/?avatarStyle=Circle&topType=ShortHairFrizzle&accessoriesType=Prescription02&hairColor=BrownDark&facialHairType=BeardMedium&facialHairColor=BrownDark&clotheType=BlazerShirt&eyeType=EyeRoll&eyebrowType=DefaultNatural&mouthType=Eating&skinColor=Light"
+              className={classes.large}
+            />
           </Grid>
-          <Grid item xs={12} sm container>
+          <Grid item xs={12} sm>
             <Paper className={classes.paper}>
               <Typography variant="subtitle1">
                 Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
               </Typography>
             </Paper>
+            <Grid item xs={12} sm>
+              <FavoriteCard />
+            </Grid>
           </Grid>
+
         </Grid>
       </Paper>
     </div>

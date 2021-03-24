@@ -7,6 +7,7 @@ import UploadModal from "../../components/UploadModal";
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
+    textAlign: 'center',
   },
   paper: {
     padding: theme.spacing(1),
@@ -20,6 +21,9 @@ function Market() {
 
   return (
     <div className={classes.root}>
+      <Typography variant ="h3">
+        MY MARKET
+      </Typography>
       <Grid container spacing={2}>
         <Grid item xs>
           <ProfileCard />

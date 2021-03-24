@@ -1,10 +1,16 @@
 import { Grid } from "@material-ui/core";
 import ProductCard from "../../components/ProductCard";
-import API from "../../utils/products"
+import ProductInfo from "../../seeds"
 
 function Products() {
 
-    API.getProductData(productObj)
+    const getProductInfo = (ProductObj) => {
+        return (
+            <Grid item xs={12} sm={4}>
+                <ProductCard {...ProductObj} />
+            </Grid>
+        )
+    }
 
     return (
         <Grid container>
@@ -15,10 +21,7 @@ function Products() {
 
                 <Grid item container xs={10} sm={8} spacing={2}>
 
-                    <Grid item xs={12} sm={4}>
-                        <ProductCard {...productObj} />
-                    </Grid>
-                    {/* {ProductsSeed.map(ProductObj => getProductInfo(ProductObj))} */}
+                    {ProductInfo.map(ProductObj => getProductInfo(ProductObj))}
 
                 </Grid>
 
