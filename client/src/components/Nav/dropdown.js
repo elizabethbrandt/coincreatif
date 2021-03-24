@@ -8,7 +8,7 @@ import StorefrontTwoToneIcon from '@material-ui/icons/StorefrontTwoTone';
 import FilterVintageIcon from '@material-ui/icons/FilterVintage';
 import LooksIcon from '@material-ui/icons/Looks';
 import ListIcon from '@material-ui/icons/List';
-
+//import ProductCard from '../ProductCard';
 import app from "../../utils/base";
 
 const useStyles = makeStyles({
@@ -64,6 +64,12 @@ export default function TemporaryDrawer() {
       <Divider />
 
       <List>
+        {['All Products'].map((text) => (
+          <ListItem button component="a" href="/products" key={text}>
+            <ListItemIcon><FilterVintageIcon /></ListItemIcon>
+            <ListItemText primary={text} />
+          </ListItem>
+        ))}
         {['Jewelry/Accessories'].map((text) => (
           <ListItem button component="a" href="#" key={text}>
             <ListItemIcon><LooksIcon /></ListItemIcon>

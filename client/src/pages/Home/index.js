@@ -15,8 +15,8 @@ function Project(props) {
         >
             <h2>{props.item.name}</h2>
 
-            <img alt="product" 
-                src={props.item.image} 
+            <img alt="product"
+                src={props.item.image}
                 style={{
                 height: "auto",
                 maxHeight: "550px",
@@ -25,7 +25,7 @@ function Project(props) {
                 display: "flex"
                 }}/>
 
-            <p>{props.item.description}</p> 
+            <p>{props.item.description}</p>
         </Paper>
     )
 }

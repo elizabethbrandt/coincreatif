@@ -1,9 +1,5 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { loadStripe } from '@stripe/stripe-js';
-// Make sure to call `loadStripe` outside of a component's render to avoid
-// recreating the `Stripe` object on every render.
-const stripePromise = loadStripe('pk_test_51ISfKTGgge8hjX12738SwcfetLIQnwDSskg0B5KVVcgto1ECBiln6uacbtnDcuQ6A5bboebcuoDyLjymH3imZuLh00R5Pc2oms');
+import React from "react";
+import stripePromise = loadStripe('process_env_STRIPE_PUBLIC_KEY);
 
 function App() {
   const handleClick = async (event) => {
@@ -28,10 +24,8 @@ function App() {
   };
 
   return (
-    <button role="link" onClick={handleClick}>
+    <button onClick={handleClick} role="link">
       Checkout
     </button>
   );
 }
-
-ReactDOM.render(<App />, document.getElementById('root'));
