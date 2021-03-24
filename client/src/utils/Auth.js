@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import app from "./base";
+import CircularIndeterminate from './loadingGif';
 
 export const AuthContext = React.createContext();
 
@@ -15,7 +16,7 @@ export const AuthProvider = ({ children }) => {
   }, []);
 
   if(pending){
-    return <>Loading...</>
+    return <><CircularIndeterminate/></>
   }
 
   return (
