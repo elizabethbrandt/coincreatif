@@ -12,7 +12,7 @@ const useStyles = makeStyles({
 
 const ProductCard = (props) => {
     const classes = useStyles();
-    const {itemName, imageId, price} = props;
+    const {itemName, imageId, price, category} = props;
     return (
         <Card>
             <CardMedia
@@ -21,6 +21,7 @@ const ProductCard = (props) => {
             />
             <CardContent>
                 <Typography variant="h5" component="h2">{itemName}</Typography>
+                <Typography variant="h5" component="h2">{category}</Typography>
                 <Typography variant="body2" component="p">${price}</Typography>
             </CardContent>
 

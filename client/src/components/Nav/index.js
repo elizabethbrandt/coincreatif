@@ -8,7 +8,7 @@ import SearchIcon from '@material-ui/icons/Search';
 import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
 import TemporaryDrawer from './dropdown';
 import IconButton from '@material-ui/core/IconButton';
-
+import Search from './Searchbar';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -96,6 +96,7 @@ export default function SearchAppBar() {
               root: classes.inputRoot,
               input: classes.inputInput,
               }}
+              onClick={(e)=>this.searchSpace(e)}
               inputProps={{ 'aria-label': 'search' }}
             />
           </div>
