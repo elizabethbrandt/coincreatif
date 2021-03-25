@@ -1,12 +1,7 @@
-<<<<<<< HEAD
-import React, {useContext, Redirect} from "react";
-import { Avatar, Grid, makeStyles, Paper, Typography, useRadioGroup } from '@material-ui/core';
+import React, {useContext} from "react";
+import { Avatar, Grid, makeStyles, Paper, Typography} from '@material-ui/core';
 import { AuthContext} from "../../utils/Auth";
-=======
-import React from "react";
-import { Avatar, Grid, makeStyles, Paper, Typography } from '@material-ui/core';
 import FavoriteCard from "../FavoritesCard";
->>>>>>> main
 
 const useStyles = makeStyles((theme) => ({
   root: {
