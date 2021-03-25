@@ -9,30 +9,6 @@ const stripe = require('stripe')('process.env_STRIPE_SECRET_KEY');
 
 require("dotenv").config();
 
-app.post('/create-checkout-session', async (req, res) => {
-  const session = await stripe.checkout.session.create({
-    payment_method_types: ['card'],
-    line_items: [
-      {
-        price_data: {
-          currency: 'usd',
-          product_data: {
-            name: 'Canvas Painting',
-            images: ['https://imgur.com/amPjG9N'],
-          },
-          unit_amount: 2400,
-        },
-        quantity: 1,
-      },
-    ],
-    mode: 'payment',
-    success_url: 'https://coincreatif/client/public/success.html',
-    cancel_url: 'https://coincreatif/client/public/cancel.html'
-  });
-
-   res.json({ id: session.id });
-
-
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -45,7 +21,12 @@ if (process.env.NODE_ENV === "production") {
 // Add routes, both API and view
 app.use("/", imageRouter);
 app.use(routes);
-app.use(cors());
+app.use(
+  cors({
+      origin: ["http://localhost:3000"],
+      methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+      credentials: true //allow session cookie to pass through
+  }));
 app.use(express.static("public"));
 
 // Connection to MongDB
