@@ -1,5 +1,5 @@
 import React from 'react';
-import { Checkbox, FormGroup, FormControlLabel, FormControl, FormLabel, Grid, TextField, makeStyles } from '@material-ui/core';
+import { Checkbox, FormControlLabel, FormControl, Grid, TextField, makeStyles } from '@material-ui/core';
 import PropTypes from "prop-types";
 import NumberFormat from "react-number-format";
 
@@ -92,7 +92,7 @@ function ProductInfo() {
             <FormControlLabel
             value="end"
             control={<Checkbox color="primary" />}
-            label="Available?"
+            label="In Stock?"
             labelPlacement="end"
             />
           </FormControl>
