@@ -18,13 +18,13 @@ class Search extends Component {
   }
 
   render(){
-    
+
     // eslint-disable-next-line array-callback-return
     const items = ProductInfo.filter((data)=>{
       if(this.state.search == null)
           return data
       else if(
-         data.itemName.toLowerCase().includes(this.state.search.toLowerCase()) 
+         data.itemName.toLowerCase().includes(this.state.search.toLowerCase())
       || data.category.toLowerCase().includes(this.state.search.toLowerCase())){
           return data
       }
