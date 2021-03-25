@@ -28,11 +28,12 @@ const Login = ({ history }) => {
     [history]
   );
 
-  const { currentUser } = useContext(AuthContext);
+  const { currentUser} = useContext(AuthContext);
 
   if (currentUser) {
     return <Redirect to="/" />;
   }
+
 
   return (
     <Paper style={{
@@ -43,7 +44,7 @@ const Login = ({ history }) => {
       alignItems: "center"}} >
         
       <h1>Log in</h1>
-
+      
       <form onSubmit={handleLogin}>
 
           <TextField 
