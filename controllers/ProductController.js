@@ -12,6 +12,12 @@ const productController = {
             res.json(results)
         })
     },
+    getItem: function(req, res) {
+        Item.findOne({_id:req.params.id})
+        .then(function(results) {
+            res.json(results)
+        })
+    },
     deleteProduct: function(req, res) {
         Item.deleteOne({_id:req.params.id})
         .then(function(results) {

@@ -1,5 +1,5 @@
 import { makeStyles, Paper, Typography } from '@material-ui/core';
-import ProductCard from '../ProductCard';
+// import ProductCard from '../ProductCard';
 
 const useStyles = makeStyles((theme) => ({
   paper: {
