@@ -20,7 +20,7 @@ function FavoriteCard() {
       <Typography variant="subtitle1">
         Coming Soon...
       </Typography>
-      <ProductCard />
+      {/* <ProductCard /> */}
     </Paper>
   )
 }

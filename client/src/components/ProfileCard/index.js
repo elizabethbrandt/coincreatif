@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
 function ProfileCard() {
   const classes = useStyles();
 
-  const { currentUser, pending } = useContext(AuthContext);
+  const { currentUser} = useContext(AuthContext);
 
   if (currentUser) {
   return (
