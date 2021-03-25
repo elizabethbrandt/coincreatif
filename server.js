@@ -5,7 +5,6 @@ const PORT = process.env.PORT || 3001;
 const imageRouter = require("./routes/imageRoute");
 const routes = require("./routes");
 const mongoose = require("mongoose");
-const stripe = require('stripe')('process.env_STRIPE_SECRET_KEY');
 
 require("dotenv").config();
 
