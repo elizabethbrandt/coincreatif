@@ -2,7 +2,7 @@ import { Grid } from "@material-ui/core";
 import { useEffect } from "react";
 import { useState } from "react";
 import ProductCard from "../../components/ProductCard";
-import API from "../../utils/products"
+import API from "../../utils/products";
 
 function Products() {
 
