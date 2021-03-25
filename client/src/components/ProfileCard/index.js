@@ -1,7 +1,6 @@
-import React, {useContext} from "react";
+import React, {useContext, Redirect} from "react";
 import { Avatar, Grid, makeStyles, Paper, Typography, useRadioGroup } from '@material-ui/core';
 import { AuthContext} from "../../utils/Auth";
-
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -24,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
 function ProfileCard() {
   const classes = useStyles();
 
-  const { currentUser } = useContext(AuthContext);
+  const { currentUser, pending } = useContext(AuthContext);
 
   if (currentUser) {
   return (

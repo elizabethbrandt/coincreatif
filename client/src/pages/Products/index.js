@@ -1,5 +1,6 @@
 import { Grid } from "@material-ui/core";
 import ProductCard from "../../components/ProductCard";
+//import ProductCard from "../../components/Nav/Searchbar";
 import ProductInfo from "../../seeds"
 
 function Products() {

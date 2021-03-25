@@ -46,6 +46,7 @@ const Login = ({ history }) => {
       <h1>Log in</h1>
       
       <form onSubmit={handleLogin}>
+        
 
           <TextField 
           name="email" 
@@ -67,28 +68,32 @@ const Login = ({ history }) => {
           label="Password"
           variant="outlined">
           </TextField>
-
-        <Button 
-        type="submit" 
-        variant="contained" 
-        color="primary" 
-        disableElevation
-        >
-          Log in
-        </Button>
-      </form>
+          <br/>
+        
+          <Button 
+          type="submit" 
+          variant="contained" 
+          color="primary" 
+          disableElevation
+          style={{margin:"3px"}}
+          >
+            Log in
+          </Button>
+        
+      </form> 
 
         <Typography>Don't have an account yet?
             <Link href="/signup">Signup</Link>
         </Typography>
 
-        <Button variant="contained" color="primary" disableElevation>
+        <div>
+        <Button style={{margin:"3px"}}variant="contained" color="primary" disableElevation>
         <IfUnAuthed />
         </Button>
-
-        <Button variant="contained" color="primary" disableElevation>
+        <Button style={{margin:"3px"}}variant="contained" color="primary" disableElevation>
         <IfUnAuthedFB />
         </Button>
+        </div>
 
         <p>You do not need to sign up if you have a google or facebook account</p>
     </Paper>
