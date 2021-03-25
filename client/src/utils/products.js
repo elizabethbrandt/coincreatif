@@ -1,11 +1,10 @@
+import axios from "axios";
+
 const API = {
   
-    async getProductData() {
-      const res = await fetch(`/api/products`);
-      const json = await res.json();
-  
-      return json;
-    },
-};
+    getProductData: () => {
+        return axios.get(`/api/products`)
+    }
+}
 
-module.exports = API;
+export default API;

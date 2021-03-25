@@ -1,6 +1,5 @@
 import React from "react";
 import { Grid, makeStyles, Paper, Typography } from "@material-ui/core";
-import ProductCard from "../../components/ProductCard";
 import ProfileCard from "../../components/ProfileCard";
 import UploadModal from "../../components/UploadModal";
 
@@ -34,9 +33,6 @@ function Market() {
               MY PRODUCTS
             </Typography>
             <UploadModal />
-            <ProductCard />
-            <ProductCard />
-            <ProductCard />
           </Paper>
         </Grid>
       </Grid>

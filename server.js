@@ -20,7 +20,12 @@ if (process.env.NODE_ENV === "production") {
 // Add routes, both API and view
 app.use("/", imageRouter);
 app.use(routes);
-app.use(cors());
+app.use(
+  cors({
+      origin: ["http://localhost:3000"],
+      methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+      credentials: true //allow session cookie to pass through
+  }));
 app.use(express.static("public"));
 
 // Connection to MongDB
