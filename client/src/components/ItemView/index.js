@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
-import API from "../../utils/products";
+// import { useEffect, useState } from "react";
+// import API from "../../utils/products";
 import { makeStyles } from '@material-ui/core/styles';
-import { Card, CardMedia, CardActions, CardContent, Button, Typography, IconButton } from '@material-ui/core';
+import { Card, CardMedia, CardActions, CardContent, Typography, IconButton } from '@material-ui/core';
 import AddShoppingCartOutlinedIcon from '@material-ui/icons/AddShoppingCartOutlined';
 import FavoriteBtn from '../FavoriteBtn';
 
@@ -12,17 +12,17 @@ const useStyles = makeStyles({
     },
 });
 
-const ItemView = () => {
+const ItemView = ({item}) => {
 
-  const [item, setItem] = useState([]);
+//   const [item, setItem] = useState([]);
 
-  useEffect(() => {
-      API.getItemData()
-          .then(({ data }) => {
-              setItem(data)
-              console.log("Data", data)
-          })
-  }, []);
+//   useEffect(() => {
+//       API.getItemData()
+//           .then(({ data }) => {
+//               setItem(data)
+//               console.log("Data", data)
+//           })
+//   }, []);
 
   const classes = useStyles();
   const {itemName, imageId, price} = item;
@@ -34,7 +34,7 @@ const ItemView = () => {
             />
             <CardContent>
                 <Typography variant="h5" component="h2">{itemName}</Typography>
-                <Typography variant="h5" component="h2">${price.$numberDecimal}</Typography>
+                <Typography variant="h5" component="h2">${price}</Typography>
             </CardContent>
 
             <CardActions>

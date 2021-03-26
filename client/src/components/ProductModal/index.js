@@ -1,7 +1,8 @@
-import React from 'react';
-import { Button, makeStyles, Modal } from '@material-ui/core';
+import React, { useEffect, useState } from 'react';
+import { makeStyles, Modal } from '@material-ui/core';
 import InfoIcon from '@material-ui/icons/Info';
 import ItemView from '../ItemView';
+import API from '../../utils/products';
 
 function rand() {
   return Math.round(Math.random() * 20) - 10;
@@ -43,9 +44,20 @@ function ProductModal() {
     setOpen(false);
   };
 
+  const [item, setItem] = useState([]);
+
+  useEffect(() => {
+      API.getItemData()
+          .then(({ data }) => {
+              setItem(data)
+              console.log("Data", data)
+          })
+  }, []);
+  
+
   const body = (
     <div style={modalStyle} className={classes.paper}>
-      <ItemView />
+      <ItemView item={item} key={item._id}/>
     </div>
   );
 
