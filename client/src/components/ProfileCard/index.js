@@ -1,6 +1,6 @@
-import React, {useContext} from "react";
-import { Avatar, Grid, makeStyles, Paper, Typography} from '@material-ui/core';
-import { AuthContext} from "../../utils/Auth";
+import React, { useContext } from "react";
+import { Avatar, Grid, makeStyles, Paper, Typography} from "@material-ui/core";
+import { AuthContext } from "../../utils/Auth";
 import FavoriteCard from "../FavoritesCard";
 
 const useStyles = makeStyles((theme) => ({
@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
 function ProfileCard() {
   const classes = useStyles();
 
-  const { currentUser} = useContext(AuthContext);
+  const { currentUser } = useContext(AuthContext);
 
   if (currentUser) {
   return (
@@ -34,9 +34,9 @@ function ProfileCard() {
           MY PROFILE
           <br/>
           my email: {currentUser.email}
-          <br/> 
+          <br/>
           my user id: {currentUser.uid}
-          
+
         </Typography>
         <Grid container spacing={2}>
           <Grid item>
