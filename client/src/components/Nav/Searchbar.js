@@ -1,19 +1,10 @@
 import ProductInfo from '../../seeds';
-import { makeStyles } from '@material-ui/core/styles';
 import { Card, CardMedia, CardActions, CardContent, Button, Typography, IconButton } from '@material-ui/core';
 import React, { Component } from 'react';
 import AddShoppingCartOutlinedIcon from '@material-ui/icons/AddShoppingCartOutlined';
 import SearchIcon from '@material-ui/icons/Search';
 import InputBase from '@material-ui/core/InputBase';
-
-const useStyles = makeStyles({
-  media: {
-      height: "100px",
-      paddingTop: '56.25%'
-  },
-});
-
-class ProductCard extends Component {
+class SearchBar extends Component {
 
   constructor(){
     super();
@@ -36,20 +27,26 @@ class ProductCard extends Component {
           return data
       else if(
          data.itemName.toLowerCase().includes(this.state.search.toLowerCase())
-      || data.category.toLowerCase().includes(this.state.search.toLowerCase())){
+      || data.category.toLowerCase().includes(this.state.search.toLowerCase())
+      || data.price.toLowerCase().includes(this.state.search.toLowerCase())
+      || data.description.toLowerCase().includes(this.state.search.toLowerCase())){
           return data
       }
     }).map(data=>{
       return(
-      <div>
-            <Card>
+        
+        
+        <Card margin="0" md={3} flex style={{width:"20%"}}
+        >
             <CardMedia
                 className={data.media}
+                style={{height:"200px", background:"cover"}}
                 image={data.imageId}
             />
             <CardContent>
                 <Typography variant="h5" component="h2">{data.itemName}</Typography>
                 <Typography variant="h5" component="h2">{data.category}</Typography>
+                <Typography variant="body2" component="p">{data.description}</Typography>
                 <Typography variant="body2" component="p">${data.price}</Typography>
             </CardContent>
 
@@ -63,7 +60,9 @@ class ProductCard extends Component {
                 </IconButton>
             </CardActions>
         </Card>
-      </div>
+       
+       
+     
       )
     })
 
@@ -85,4 +84,4 @@ class ProductCard extends Component {
   }
 }
 
-export default ProductCard;
+export default SearchBar;
