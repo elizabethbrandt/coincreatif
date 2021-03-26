@@ -21,11 +21,11 @@ function Products() {
             <Grid item xs={1} sm={2}></Grid>
 
             <Grid item container xs={10} sm={8} spacing={2}>
-                {products.map(products => (
+                
                     <Grid item xs={12} sm={4}>
                         <SearchBar product={products} key={products._id}/>
                     </Grid>
-                ))} 
+               
             </Grid>
 
             {/* Gutter space */}

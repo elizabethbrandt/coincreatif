@@ -19,7 +19,7 @@ class SearchBar extends Component {
     this.setState({search:keyword})
   }
 
-  render(){
+  render(theme){
 
     // eslint-disable-next-line array-callback-return
     const items = ProductInfo.filter((data)=>{
@@ -36,7 +36,7 @@ class SearchBar extends Component {
       return(
         
         
-        <Card margin="0" md={3} flex style={{width:"20%"}}
+        <Card margin="0" md={3} flex 
         >
             <CardMedia
                 className={data.media}
@@ -67,15 +67,14 @@ class SearchBar extends Component {
     })
 
     return (
-      <div >
-            <div >
-              <SearchIcon />
-            </div>
-
+          <div>
+            
+            <SearchIcon />
+            
             <InputBase
               placeholder="Search…"
               
-              onClick={(e)=>this.searchSpace(e)}
+              onChange={(e)=>this.searchSpace(e)}
               inputProps={{ 'aria-label': 'search' }}
             />
             {items}

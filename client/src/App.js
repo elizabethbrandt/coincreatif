@@ -8,8 +8,8 @@ import Login from './pages/Login';
 import Products from './pages/Products';
 import Signup from './pages/Signup';
 import User from './pages/UserMarket';
-import Search from './components/Nav/Searchbar'
-
+import Search from './components/Nav/Searchbar';
+import Footer from './pages/Footer/index';
 import { AuthProvider } from "./utils/Auth";
 import PrivateRoute from "./utils/PrivateRoute";
 
@@ -31,6 +31,7 @@ function App() {
           <Route exact path="/search" component={Search} />
 
         </Switch>
+        <Footer />
       </div>
     </Router>
   </AuthProvider>
