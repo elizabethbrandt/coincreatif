@@ -37,8 +37,6 @@ function Products() {
 
             </Grid>
 
-            {/* Gutter space */}
-            <Grid item xs={1} sm={2}></Grid>
         </Grid>
         
     )
