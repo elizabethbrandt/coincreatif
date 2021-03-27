@@ -13,18 +13,18 @@ const useStyles = makeStyles({
 const ItemView = ({item}) => {
 
   const classes = useStyles();
-  const {itemName, imageId, price, description, available} = item;
+  const {itemName, image, price, description, available} = item;
     return (
         <Card>
             <CardMedia
                 className={classes.media}
-                image={imageId}
+                image={image}
             />
             <CardContent>
                 <Typography variant="h5" component="h2">{itemName}</Typography>
-                <Typography variant="h5" component="h2">${price.$numberDecimal}</Typography>
-                <Typography variant="h5" component="h2">{description}</Typography>
-                <Typography variant="h5" component="h2">{available}</Typography>
+                <Typography variant="h5" component="h2">${price}</Typography>
+                <Typography variant="h5" component="h2">Description: {description}</Typography>
+                <Typography variant="h5" component="h2">In Stock: {available}</Typography>
             </CardContent>
 
             <CardActions>
