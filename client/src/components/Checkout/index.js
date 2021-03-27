@@ -1,31 +1,45 @@
 import React from "react";
-import stripePromise = loadStripe('process_env_STRIPE_PUBLIC_KEY);
+import { Redirect, Link } from 'react-router-dom';
 
-function App() {
-  const handleClick = async (event) => {
-    // Get Stripe.js instance
-    const stripe = await stripePromise;
+export default class Checkout extends React.Component {
+  constructor(props) {
+    super(props);
+      this.state = { products: [], total: 0 }
+  }
 
-    // Call your backend to create the Checkout Session
-    const response = await fetch('/create-checkout-session', { method: 'POST' });
-
-    const session = await response.json();
-
-    // When the customer clicks on the button, redirect them to Checkout.
-    const result = await stripe.redirectToCheckout({
-      sessionId: session.id,
-    });
-
-    if (result.error) {
-      // If `redirectToCheckout` fails due to a browser or network
-      // error, display the localized error message to your customer
-      // using `result.error.message`.
+  componentDidMount() {
+    let cart = localStorage.getItem('cart');
+    if (!cart) return;
+    getCartProducts(cart).then((products) => {
+      let total = 0;
+      for (var i 0; i < products.length; i++) {
+      total += products[i].price * products[i].qty;
     }
-  };
+    this.setState({ products, total });
+  });
+}
 
+pay = () => pay().then(data => alert(data)).catch(err => console.log(err))
+
+render() {
+  if (!isAuthenticated()) return (<Redirect to="/login" />);
+  const { products, total } = this.state;
   return (
-    <button onClick={handleClick} role="link">
-      Checkout
-    </button>
-  );
+    <div className=" container">
+      <h3 className="card-title">Checkout</h3><hr />
+      { products.map((product, index) =>
+        <div key={index}>
+          <p>{product.name} <small> (quantity: {product.qty})</small>
+            <span className="float-right text-primary">${product.qty * product.price}
+            </span></p><hr />
+        </div>
+      )} <hr />
+      { products.length ?
+        <div><h4><small>Total Amount:</small><span className="float-right text-primary">
+          ${total}</span></h4><hr /></div> : ''}
+      <Link to="/"><button className="btn btn-danger float-right"
+        style={{ marginRight: "10px" }}>Cancel</button></Link><br /><br /><br />
+    </div>
+   );
+ }
 }
