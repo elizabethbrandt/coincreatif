@@ -5,6 +5,7 @@ const PORT = process.env.PORT || 3001;
 const imageRouter = require("./routes/imageRoute");
 const routes = require("./routes");
 const mongoose = require("mongoose");
+const path = require('path');
 
 require("dotenv").config();
 
