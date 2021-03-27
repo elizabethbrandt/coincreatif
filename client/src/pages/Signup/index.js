@@ -22,8 +22,10 @@ const SignUp = ({ history }) => {
 
   return (
     <Paper style={{
-      margin:"30px", 
+      margin:"auto", 
+      marginTop: "15px",
       padding:"15px", 
+      width:"50%",
       display: "flex",
       flexDirection: "column",
       alignItems: "center"}}>
@@ -46,18 +48,20 @@ const SignUp = ({ history }) => {
           required
           label="Password"
           variant="outlined"/>
+          <br/>
 
         <Button 
         type="submit"
         variant="contained" 
         color="primary" 
         disableElevation
+        style={{width:"100%", marginTop:"3px"}}
         >
           Sign Up</Button>
       </form>
-
+      
         <Typography>Already have an account yet?
-          <Link href="/login">Login</Link>
+          <Button color="secondary" disableElevation href="/login" > Login</Button>
         </Typography>
 
     </Paper>

@@ -5,6 +5,7 @@ import API from "../../utils/products";
 
 function Products() {
 
+
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
@@ -35,7 +36,9 @@ function Products() {
                 <Grid item xs={1} sm={2}></Grid>
 
             </Grid>
+
         </Grid>
+        
     )
 }
 

@@ -13,8 +13,6 @@ function Project(props) {
             }}
             elevation={10}
         >
-            <h2>{props.item.name}</h2>
-
             <img alt="product"
                 src={props.item.image}
                 style={{
@@ -24,8 +22,6 @@ function Project(props) {
                 objectFit: "cover",
                 display: "flex"
                 }}/>
-
-            <p>{props.item.description}</p>
         </Paper>
     )
 }

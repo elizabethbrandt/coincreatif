@@ -1,17 +1,13 @@
 import ProductInfo from '../../seeds';
-import { makeStyles } from '@material-ui/core/styles';
-import { Card, CardMedia, CardActions, CardContent, Button, Typography, IconButton } from '@material-ui/core';
+
+import { Card, CardMedia, CardActions, CardContent, Typography, IconButton } from '@material-ui/core';
 import React, { Component } from 'react';
 import AddShoppingCartOutlinedIcon from '@material-ui/icons/AddShoppingCartOutlined';
 import SearchIcon from '@material-ui/icons/Search';
 import InputBase from '@material-ui/core/InputBase';
+import FavoriteBtn from '../FavoriteBtn';
+import ProductModal from '../ProductModal';
 
-const useStyles = makeStyles({
-  media: {
-      height: "100px",
-      paddingTop: '56.25%'
-  },
-});
 
 class ProductCard extends Component {
 
@@ -36,33 +32,37 @@ class ProductCard extends Component {
           return data
       else if(
          data.itemName.toLowerCase().includes(this.state.search.toLowerCase())
-      || data.category.toLowerCase().includes(this.state.search.toLowerCase())){
+      || data.category.toLowerCase().includes(this.state.search.toLowerCase())
+      || data.description.toLowerCase().includes(this.state.search.toLowerCase())
+      || data.price.toLowerCase().includes(this.state.search.toLowerCase())){
           return data
       }
     }).map(data=>{
       return(
       <div>
-            <Card>
+           <Card style={{width:"20%"}}>
             <CardMedia
                 className={data.media}
                 image={data.imageId}
+                style={{height:"100px", paddingTop: '56.25%'}}
             />
             <CardContent>
                 <Typography variant="h5" component="h2">{data.itemName}</Typography>
-                <Typography variant="h5" component="h2">{data.category}</Typography>
-                <Typography variant="body2" component="p">${data.price}</Typography>
+                <Typography variant="h5" component="h2">${data.price}</Typography>
             </CardContent>
 
             <CardActions>
-                <Button size="small" variant="outlined" href="/">View Item</Button>
-                <IconButton aria-label="settings">
+                <IconButton>
+                    <ProductModal itemId={data._id} />
                 </IconButton>
-
-                <IconButton aria-label="settings">
+                <IconButton>
                     <AddShoppingCartOutlinedIcon fontSize="large" />
                 </IconButton>
+                <FavoriteBtn />
             </CardActions>
         </Card>
+
+            
       </div>
       )
     })

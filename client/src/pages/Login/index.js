@@ -37,8 +37,10 @@ const Login = ({ history }) => {
 
   return (
     <Paper style={{
-      margin:"30px", 
-      padding:"15px",  
+      margin:"auto", 
+      marginTop: "15px",
+      padding:"15px",
+      width:"50%",
       display: "flex",
       flexDirection: "column",
       alignItems: "center"}} >
@@ -46,7 +48,6 @@ const Login = ({ history }) => {
       <h1>Log in</h1>
       
       <form onSubmit={handleLogin}>
-        
 
           <TextField 
           name="email" 
@@ -75,7 +76,7 @@ const Login = ({ history }) => {
           variant="contained" 
           color="primary" 
           disableElevation
-          style={{margin:"3px"}}
+          style={{width:"100%", marginTop:"3px"}}
           >
             Log in
           </Button>
@@ -83,7 +84,7 @@ const Login = ({ history }) => {
       </form> 
 
         <Typography>Don't have an account yet?
-            <Link href="/signup">Signup</Link>
+            <Link color="secondary" disableElevation href="/signup" >Signup</Link>
         </Typography>
 
         <div>
