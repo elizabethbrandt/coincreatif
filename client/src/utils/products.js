@@ -5,8 +5,8 @@ const API = {
     getProductData: () => {
         return axios.get(`/api/products`)
     },
-    getItemData: () => {
-      return axios.get(`/api/products/:id`)
+    getItemData: (id) => {
+      return axios.get(`/api/products/${id}`)
     },
 }
 

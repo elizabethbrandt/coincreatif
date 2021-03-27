@@ -14,7 +14,7 @@ const useStyles = makeStyles({
 
 const ProductCard = ({product}) => {
     const classes = useStyles();
-    const {itemName, imageId, price} = product;
+    const {itemName, imageId, price, _id} = product;
     return (
         <Card>
             <CardMedia
@@ -28,7 +28,7 @@ const ProductCard = ({product}) => {
 
             <CardActions>
                 <IconButton>
-                    <ProductModal/>
+                    <ProductModal itemId={_id} />
                 </IconButton>
                 <IconButton>
                     <AddShoppingCartOutlinedIcon fontSize="large" />

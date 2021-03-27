@@ -25,7 +25,7 @@ function Products() {
 
                     {products.map(product => (
                         <Grid item xs={12} sm={4}>
-                            <ProductCard product={product} key={product._id} />
+                            <ProductCard product={product} key={product._id}  />
                         </Grid>
                     ))}
 
