@@ -21,14 +21,14 @@ const itemSchema = new Schema({
         required: true
     },
     price: {
-        type: mongoose.Types.Decimal128,
+        type: Number,
         required: true
     },
     available: {
-        type: Boolean,
+        type: Number,
         required: true
     },
-    imageId: {
+    image: {
         type: String,
         required: true
     },
