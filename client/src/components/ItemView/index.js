@@ -22,7 +22,7 @@ const ItemView = ({item}) => {
             />
             <CardContent>
                 <Typography variant="h5" component="h2">{itemName}</Typography>
-                <Typography variant="h5" component="h2">${price.$numberDecimal}</Typography>
+                <Typography variant="h5" component="h2">${price}</Typography>
                 <Typography variant="h5" component="h2">{description}</Typography>
                 <Typography variant="h5" component="h2">{available}</Typography>
             </CardContent>
