@@ -1,8 +1,7 @@
 import SearchIcon from '@material-ui/icons/Search';
 import InputBase from '@material-ui/core/InputBase';
-import { useState } from 'react';
 
-const Search2 = ({products, handleInputChange}) => {
+const Search2 = ({handleInputChange}) => {
 
     return (
         <div >

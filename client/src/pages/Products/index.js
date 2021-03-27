@@ -19,35 +19,27 @@ function Products() {
 
     const [searchInput, setSearchInput] = useState("");
 
-    const handleInputChange = e => {
-        console.log(e)
-        setSearchInput({search: e.target.value})
-    }
+    const handleInputChange = (e) => {
+        setSearchInput(e.target.value);
+      };
 
-    console.log(searchInput)
-
-    
     useEffect(() => {
-        
-        const items = products.map((data) => {
-            const input = searchInput.search.toString()
-            console.log(searchInput)
-            console.log(data.itemName)
-            console.log((data.itemName.toLowerCase().includes(input.toLowerCase())))
-            
-            // || data.category.toLowerCase().includes(input.toLowerCase())
-            // || data.description.toLowerCase().includes(input.toLowerCase())
-            
-        })
-        setFilteredProducts(items)
-        console.log("items", items)
+        let items = searchInput.length
+            ? products.filter((data) => {
+                const condition =
+                data.itemName.toLowerCase().includes(searchInput.toLowerCase()) ||
+                data.category
+                    .toLowerCase()
+                    .includes(searchInput.toString().toLowerCase()) ||
+                data.description.toLowerCase().includes(searchInput.toLowerCase());
+                return condition;
+            })
+            : [];
+        setFilteredProducts(items);
+    }, [searchInput, products]);
 
-    }, [searchInput, products])
-
-    const searchCondition = 
-        filteredProducts.length === 0 ? products : filteredProducts
-    
-    console.log("searchCondition", searchCondition)
+    const searchCondition =
+    filteredProducts.length === 0 ? products : filteredProducts;
 
 
     return (
@@ -64,11 +56,11 @@ function Products() {
 
                 <Grid item container xs={10} sm={8} spacing={2}>
 
-                    {searchCondition.map(product => (
+                    {searchCondition.length ? searchCondition.map(product => (
                         <Grid item xs={12} sm={4}>
-                            <ProductCard product={product}  />
+                            <ProductCard product={product} key={product._id}  />
                         </Grid>
-                    ))}
+                    )) : "" }
 
                 </Grid>
 
