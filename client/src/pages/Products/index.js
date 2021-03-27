@@ -1,6 +1,6 @@
 import { Grid } from "@material-ui/core";
 import { useEffect, useState } from "react";
-import Search2 from "../../components/Nav/search2";
+import SearchBar from "../../components/Nav/Searchbar";
 import ProductCard from "../../components/ProductCard";
 import API from "../../utils/products";
 
@@ -46,7 +46,7 @@ function Products() {
         <Grid container>
 
             <Grid item>
-                <Search2 products={products} handleInputChange={handleInputChange} searchInput={searchInput}/>
+                <SearchBar products={products} handleInputChange={handleInputChange} searchInput={searchInput}/>
             </Grid>
             
             <Grid item container>
