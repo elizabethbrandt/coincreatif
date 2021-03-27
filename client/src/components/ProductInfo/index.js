@@ -74,7 +74,7 @@ function ProductInfo() {
           />
           <TextField
               required
-              id="outlined-required"
+              name="description"
               label="Description"
               placeholder="Product Description"
               variant="outlined"
@@ -83,7 +83,7 @@ function ProductInfo() {
         <Grid container xs={6}>
           <TextField
               required
-              id="outlined-required"
+              name="itemName"
               label="Product"
               placeholder="Product Name"
               variant="outlined"
