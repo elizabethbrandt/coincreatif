@@ -29,7 +29,12 @@ app.use(
 app.use(express.static("public"));
 
 // Connection to MongDB
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/coincreatif");
+mongoose
+  .connect(
+    process.env.MONGODB_URI || "mongodb://localhost/coincreatif",
+    { useNewUrlParser: true })
+  .then(() => console.log("MongoDB successfully connected"))
+  .catch(err => console.log(err));
 
 
 app.get("*", function(req, res) {
