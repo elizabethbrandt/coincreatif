@@ -1,9 +1,9 @@
-function Cart() {
-    return (
-        <div>
-            <p>Cart Page</p>
-        </div>
-    )
+
+
+const Cart = () => {
+  return (
+   <div>cart page</div>
+  );
 }
 
 export default Cart;
