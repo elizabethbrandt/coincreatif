@@ -5,9 +5,9 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 const FooterPage = () => {
   return (
     <AppBar position="relative" color="primary">
-    <Container>
+    <Container >
       <Toolbar>
-        <Typography variant="body1" color="inherit" style={{marginLeft:"41%", marginRight:"41%"}}>
+        <Typography variant="p" color="inherit" >
           &copy; 2021  Made with <FavoriteIcon color="secondary" fontSize="small" />
         </Typography>
       </Toolbar>
