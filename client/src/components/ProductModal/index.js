@@ -30,7 +30,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function ProductModal() {
+function ProductModal({itemId}) {
   const classes = useStyles();
   // getModalStyle is not a pure function, we roll the style only on the first render
   const [modalStyle] = React.useState(getModalStyle);
@@ -42,29 +42,28 @@ function ProductModal() {
 
   const handleClose = () => {
     setOpen(false);
-  };
+  };  
 
   const [item, setItem] = useState([]);
 
   useEffect(() => {
-      API.getItemData()
+      API.getItemData(itemId)
           .then(({ data }) => {
               setItem(data)
               console.log("Data", data)
           })
-  }, []);
-  
+  }, [itemId]);
 
   const body = (
     <div style={modalStyle} className={classes.paper}>
-      <ItemView item={item} key={item._id}/>
+      <ItemView item={item} />
     </div>
   );
 
   return (
     <div>
 
-      <InfoIcon className={classes.button} onClick={handleOpen} color="default" fontSize="large"/>
+      <InfoIcon className={classes.button} onClick={handleOpen} color="primary" fontSize="large"/>
 
       <Modal
         open={open}
