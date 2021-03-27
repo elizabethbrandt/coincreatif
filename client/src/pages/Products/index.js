@@ -1,5 +1,6 @@
 import { Grid } from "@material-ui/core";
 import { useEffect, useState } from "react";
+import Search2 from "../../components/Nav/search2";
 import ProductCard from "../../components/ProductCard";
 import API from "../../utils/products";
 
@@ -17,6 +18,11 @@ function Products() {
 
     return (
         <Grid container>
+
+            <Grid item>
+                <Search2 products={products}/>
+            </Grid>
+            
             <Grid item container>
 
                 {/* Gutter space */}
