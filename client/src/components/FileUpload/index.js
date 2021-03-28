@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { Typography } from "@material-ui/core";
 
 function ImageUpload() {
   // Sets a state that manages the file value and decoded image file
@@ -20,16 +21,20 @@ function ImageUpload() {
 
   console.log("Image", fileData);
 
-  axios.post("/mymarket", formData)
-    .then((res) => console.log("res", res.data))
-    .catch((error) => console.error(error));
+  const handleSubmit = () => {
+
+    axios.post("/api/products", formData)
+      .then((res) => console.log("res", res.data))
+      .catch((error) => console.error(error));
+  }
+
 
   return(
     <div className="container">
       <div className="row">
         {/* Post route action for image to upload using multer */}
-        <form action="/mymarket" method="post" enctype="multipart/form-data">
-          <h3>Upload Files</h3>
+        <form action="/api/products" method="post" enctype="multipart/form-data">
+          <Typography variant="h6">Upload photos</Typography>
           {/* <img src="/images/${filename}.jpg" alt="${imagename}" /> */}
           <div className="form-group">
               <input
@@ -39,12 +44,13 @@ function ImageUpload() {
                 accept="image/*"
                 onChange={handleFileChange}
                 placeholder="upload image"
-                isRequired="true"
+                required
                 multiple
               />
           </div>
           <div className="form-group">
-            <input type="submit"/>
+            <br/>
+            <input type="submit" onSubmit={handleSubmit}/>
           </div>
         </form>
       </div>

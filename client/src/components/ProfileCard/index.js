@@ -18,6 +18,7 @@ const useStyles = makeStyles((theme) => ({
   large: {
     width: theme.spacing(7),
     height: theme.spacing(7),
+    marginLeft: "48%"
   },
 }));
 
@@ -30,27 +31,23 @@ function ProfileCard() {
   return (
     <div className="classes.root">
       <Paper className={classes.paper}>
-        <Typography variant="h4" className="email-name">
-          MY PROFILE
-          <br/>
-          my email: {currentUser.email}
-          <br/> 
-          my user id: {currentUser.uid}
-          
-        </Typography>
-        <Grid container spacing={2}>
-          <Grid item>
-            {/* Change src to dynamically update according to a user image/avatar */}
-            <Avatar
+      <Avatar
               alt="Profile"
               src="https://avataaars.io/?avatarStyle=Circle&topType=ShortHairFrizzle&accessoriesType=Prescription02&hairColor=BrownDark&facialHairType=BeardMedium&facialHairColor=BrownDark&clotheType=BlazerShirt&eyeType=EyeRoll&eyebrowType=DefaultNatural&mouthType=Eating&skinColor=Light"
               className={classes.large}
             />
+            <Typography variant="h5" textAlign="right">My Profile:</Typography>
+        <Grid container spacing={2}>
+          
+          <Grid item>
+            {/* Change src to dynamically update according to a user image/avatar */}
           </Grid>
           <Grid item xs={12} sm>
             <Paper className={classes.paper}>
               <Typography variant="subtitle1">
-                Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
+              my email: {currentUser.email}
+              <br></br>
+              my user id: {currentUser.uid}
               </Typography>
             </Paper>
             <Grid item xs={12} sm>

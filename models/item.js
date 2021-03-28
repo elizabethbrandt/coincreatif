@@ -4,33 +4,33 @@ const Schema = mongoose.Schema;
 const itemSchema = new Schema({
     sellerId: {
         type: String,
-        required: true,
+        // required: true,
         ref: "User"
     },
     itemName: {
         type: String,
-        required: true
+        // required: true
     },
     category: {
         type: String,
-        required: true,
+        // required: true,
         enum: ["Art", "Jewelry", "Clothing", "Home Decor", "Entertainment"]
     },
     description: {
         type: String,
-        required: true
+        // required: true
     },
     price: {
-        type: mongoose.Types.Decimal128,
-        required: true
+        type: Number,
+        // required: true
     },
     available: {
-        type: Boolean,
-        required: true
+        type: Number,
+        // required: true
     },
-    imageId: {
+    image: {
         type: String,
-        required: true
+        // required: true
     },
 });
 

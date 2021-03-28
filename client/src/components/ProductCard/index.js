@@ -1,6 +1,6 @@
 import { makeStyles } from '@material-ui/core/styles';
 import { Card, CardMedia, CardActions, CardContent, Typography, IconButton } from '@material-ui/core';
-import AddShoppingCartOutlinedIcon from '@material-ui/icons/AddShoppingCartOutlined';
+import AddCart from "./addCart";
 import FavoriteBtn from '../FavoriteBtn';
 import ProductModal from '../ProductModal';
 
@@ -14,25 +14,25 @@ const useStyles = makeStyles({
 
 const ProductCard = ({product}) => {
     const classes = useStyles();
-    const {itemName, imageId, price, _id} = product;
+    const {itemName, image, price, _id} = product;
     return (
         <Card>
+            {console.log(itemName)}
+            {console.log(price)}
             <CardMedia
                 className={classes.media}
-                image={imageId}
+                image={image.includes("http") ? image : "/images/" + image}
             />
             <CardContent>
                 <Typography variant="h5" component="h2">{itemName}</Typography>
-                <Typography variant="h5" component="h2">${price.$numberDecimal}</Typography>
+                <Typography variant="h5" component="h2">${price}</Typography>
             </CardContent>
 
             <CardActions>
                 <IconButton>
                     <ProductModal itemId={_id} />
                 </IconButton>
-                <IconButton>
-                    <AddShoppingCartOutlinedIcon fontSize="large" />
-                </IconButton>
+                <AddCart/>
                 <FavoriteBtn />
             </CardActions>
         </Card>
