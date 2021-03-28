@@ -70,19 +70,12 @@ export default function ProductInfo() {
   console.log("FILE Data", fileData);
   console.log("FORM Data", formData);
   
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("Target", e.target.value)
-
-    axios.post("/api/products", formData)
-      .then((res) => console.log("res", res.data))
-      .catch((error) => console.error(error));
-  }
 
   return (
     <form className={classes.root} noValidate autoComplete="off"  action="/api/products" method="post" encType="multipart/form-data"  >
       <div>
-        <div value={currentUser.uid} name="sellerId"></div>
+        {console.log(currentUser.uid)}
+        <input type="hidden" value={currentUser.uid} name="sellerId" />
         <Typography variant="h4">Add Your Product</Typography>
         {/* Item Name */}
         <TextField

@@ -20,7 +20,7 @@ router.post('/api/products', upload.single('avatar'), function (req, res) {
   console.log(req.body)
   req.body.image = req.file.originalname;
   Item.create(req.body).then(function(results) {
-    res.render("/mymarket", results)
+    res.redirect("/mymarket", results)
   })
 })
 
