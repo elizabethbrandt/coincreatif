@@ -1,6 +1,6 @@
 import { makeStyles } from '@material-ui/core/styles';
 import { Card, CardMedia, CardActions, CardContent, Typography, IconButton } from '@material-ui/core';
-import AddShoppingCartOutlinedIcon from '@material-ui/icons/AddShoppingCartOutlined';
+import AddCart from "./addCart";
 import FavoriteBtn from '../FavoriteBtn';
 import ProductModal from '../ProductModal';
 
@@ -30,9 +30,7 @@ const ProductCard = ({product}) => {
                 <IconButton>
                     <ProductModal itemId={_id} />
                 </IconButton>
-                <IconButton>
-                    <AddShoppingCartOutlinedIcon fontSize="large" />
-                </IconButton>
+                <AddCart/>
                 <FavoriteBtn />
             </CardActions>
         </Card>

@@ -4,11 +4,7 @@ import app from "../../utils/base";
 import { AuthContext } from "../../utils/Auth";
 import IfUnAuthed from '../../utils/google';
 import IfUnAuthedFB from '../../utils/facebook';
-import Button from '@material-ui/core/Button';
-import { TextField, Typography } from "@material-ui/core";
-import Link from '@material-ui/core/Link';
-import Paper from '@material-ui/core/Paper';
-//import FormControl from '@material-ui/core/FormControl'
+import { TextField, Typography, Button, Link, Paper } from "@material-ui/core";
 
 
 const Login = ({ history }) => {
@@ -43,7 +39,8 @@ const Login = ({ history }) => {
       width:"50%",
       display: "flex",
       flexDirection: "column",
-      alignItems: "center"}} >
+      alignItems: "center",
+      marginBottom:"100px"}} >
         
       <h1>Log in</h1>
       
