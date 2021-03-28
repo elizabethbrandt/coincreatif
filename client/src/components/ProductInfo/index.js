@@ -4,7 +4,6 @@ import TextField from '@material-ui/core/TextField';
 import MenuItem from '@material-ui/core/MenuItem';
 import { InputAdornment, Typography } from '@material-ui/core';
 import { AuthContext } from "../../utils/Auth";
-import axios from 'axios';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -41,35 +40,6 @@ const categories = [
 export default function ProductInfo() {
   const classes = useStyles();
   const { currentUser } = useContext(AuthContext);
-  const [category, setCategory] = useState('');
-
-  const handleChange = (event) => {
-    setCategory(event.target.value);
-  };
-
-  // Sets a state that manages the file value and decoded image file
-  const [fileData, setFileData] = useState();
-
-  // Sets a state that reads the image path on every change and sets it as the file input field value
-  const [images, setFile] = useState("");
-
-  // Function to handle the file change where files[0] holds the full information of the uploaded image
-  const handleFileChange = e => {
-    setFileData(e.target.files[0]); // Full information about the image
-    setFile(e.target.value); // Value of the image
-  };
-
-  const formData = new FormData();
-
-  const handleAppend = (itemField, value) => {
-    setFileData(itemField, value);
-  }
-
-  formData.append("image", fileData);
-
-  console.log("FILE Data", fileData);
-  console.log("FORM Data", formData);
-  
 
   return (
     <form className={classes.root} noValidate autoComplete="off"  action="/api/products" method="post" encType="multipart/form-data"  >
