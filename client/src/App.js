@@ -12,6 +12,7 @@ import Search from './components/Nav/Searchbar';
 import Footer from './pages/Footer/index';
 import { AuthProvider } from "./utils/Auth";
 import PrivateRoute from "./utils/PrivateRoute";
+import Us from "./pages/Us/index.js"
 
 function App() {
   return (
@@ -29,7 +30,7 @@ function App() {
           <Route exact path="/item" component={Item} />
           <Route exact path="/cart" component={Cart} />
           <Route exact path="/search" component={Search} />
-
+          <Route exact path="/us" component={Us} />
         </Switch>
         <Footer />
       </div>
