@@ -1,10 +1,7 @@
-import { TextField, Typography } from "@material-ui/core";
+import { TextField, Typography, Button, Paper } from "@material-ui/core";
 import React, { useCallback } from "react";
 import { withRouter } from "react-router";
 import app from "../../utils/base";
-import Button from '@material-ui/core/Button';
-import Link from '@material-ui/core/Link';
-import Paper from '@material-ui/core/Paper';
 
 const SignUp = ({ history }) => {
   const handleSignUp = useCallback(async event => {
