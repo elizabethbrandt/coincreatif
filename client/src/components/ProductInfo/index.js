@@ -1,105 +1,128 @@
-import React from 'react';
-import { Checkbox, FormControlLabel, FormControl, Grid, TextField, makeStyles } from '@material-ui/core';
-import PropTypes from "prop-types";
-import NumberFormat from "react-number-format";
-
+import React, { useContext, useState } from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import TextField from '@material-ui/core/TextField';
+import MenuItem from '@material-ui/core/MenuItem';
+import { InputAdornment, Typography } from '@material-ui/core';
+import { AuthContext } from "../../utils/Auth";
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    '& .MuiTextField-root': {
-      margin: theme.spacing(1),
-      width: 200,
-    },
-  },
+    root: {
+      '& .MuiTextField-root': {
+        margin: theme.spacing(1),
+        width: '25ch',
+      },
+    }
 }));
 
-function NumberFormatCustom(props) {
-  const { inputRef, onChange, ...other } = props;
+const categories = [
+  {
+    value: 'Art',
+    label: 'Art',
+  },
+  {
+    value: 'Jewelry',
+    label: 'Jewelry',
+  },
+  {
+    value: 'Clothing',
+    label: 'Clothing',
+  },
+  {
+    value: 'Home Decor',
+    label: 'Home Decor',
+  },
+  {
+    value: 'Entertainment',
+    label: 'Entertainment',
+  },
+];
 
-  return (
-    <NumberFormat
-      {...other}
-      getInputRef={inputRef}
-      onValueChange={(values) => {
-        onChange({
-          target: {
-            name: props.name,
-            value: values.value,
-          },
-        });
-      }}
-      thousandSeparator
-      isNumericString
-      prefix="$"
-    />
-  );
-}
-
-NumberFormatCustom.propTypes = {
-  inputRef: PropTypes.func.isRequired,
-  name: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired,
-};
-
-function ProductInfo() {
+export default function ProductInfo({handleClose}) {
   const classes = useStyles();
-
-  const [values, setValues] = React.useState({
-    numberformat: "",
-  });
-
-  const handleChange = (event) => {
-    setValues({
-      ...values,
-      [event.target.name]: event.target.value,
-    });
-  };
+  const { currentUser } = useContext(AuthContext);
 
   return (
-    <form className={classes.root} noValidate autoComplete="off">
-      <Grid container spacing={3}>
-        <Grid container xs={6}>
-          <TextField
+    <form className={classes.root}   noValidate autoComplete="off"  action="/mymarket" method="post" encType="multipart/form-data"  >
+      <div>
+        {console.log(currentUser.uid)}
+        <input type="hidden" value={currentUser.uid} name="sellerId" />
+        <Typography variant="h4">Add Your Product</Typography>
+        {/* Item Name */}
+        <TextField
             required
-            id="outline-required"
-            label="Amount"
-            placeholder="$"
+            name="itemName"
+            label="Item Name"
+            placeholder="Product Name"
             variant="outlined"
-            value={values.numberformat}
-            onChange={handleChange}
-            name="numberformat"
-            InputProps={{
-              inputComponent: NumberFormatCustom,
+           
+        />
+        {/* Category */}
+        <TextField
+            required
+            name="category"
+            id="outlined-select-currency"
+            select
+            label="Select item category"
+            
+            variant="outlined"
+            
+            >
+            {categories.map((option) => (
+                <MenuItem key={option.value} value={option.value}>
+                {option.label}
+                </MenuItem>
+            ))}
+        </TextField>
+        {/* Description */}
+        <TextField
+            required
+            name="description"
+            label="Item description"
+            placeholder="Item Description"
+            variant="outlined"
+           
+
+          />
+        {/* Price */}
+        <TextField
+            required
+            name="price"
+            label="Price"
+            id="outlined-start-adornment"
+        //   className={clsx(classes.margin, classes.textField)}
+            InputProps={{startAdornment: <InputAdornment position="start">$</InputAdornment>,
             }}
+            variant="outlined"
+            
+        />
+        {/* Number Available */}
+        <TextField
+            required
+            name="available"
+            label="Number of items available"
+            placeholder="Number of items available"
+            variant="outlined"
+            
           />
-          <TextField
-              required
-              name="description"
-              label="Description"
-              placeholder="Product Description"
-              variant="outlined"
+      </div>
+      <Typography variant="h6">Upload photos</Typography>
+      <div className="form-group">
+          <input
+            type="file"
+             
+            name="avatar"
+            accept="image/*"
+            
+            placeholder="upload image"
+            required
+            multiple
           />
-        </Grid>
-        <Grid container xs={6}>
-          <TextField
-              required
-              name="itemName"
-              label="Product"
-              placeholder="Product Name"
-              variant="outlined"
-          />
-          <FormControl component="fieldset">
-            <FormControlLabel
-            value="end"
-            control={<Checkbox color="primary" />}
-            label="In Stock?"
-            labelPlacement="end"
-            />
-          </FormControl>
-        </Grid>
-      </Grid>
+      </div>
+      <div className="form-group">
+        <br/>
+        <input type="submit" />
+      </div>
+
     </form>
   );
 }
-
-export default ProductInfo;

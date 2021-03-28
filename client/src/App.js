@@ -3,7 +3,6 @@ import './App.css';
 import Nav from './components/Nav';
 import Cart from './pages/Cart';
 import Home from './pages/Home';
-import Item from './pages/Item';
 import Login from './pages/Login';
 import Products from './pages/Products';
 import Signup from './pages/Signup';
@@ -27,7 +26,6 @@ function App() {
           <PrivateRoute exact path="/mymarket" component={User} />
           <Route exact path="/signup" component={Signup} />
           <Route exact path="/products" component={Products} />
-          <Route exact path="/item" component={Item} />
           <Route exact path="/cart" component={Cart} />
           <Route exact path="/search" component={Search} />
           <Route exact path="/us" component={Us} />

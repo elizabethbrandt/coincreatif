@@ -18,7 +18,7 @@ const ItemView = ({item}) => {
         <Card>
             <CardMedia
                 className={classes.media}
-                image={image}
+                image={image.includes("http") ? image : "/images/" + image}
             />
             <CardContent>
                 <Typography variant="h5" component="h2">{itemName}</Typography>
