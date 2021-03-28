@@ -14,16 +14,16 @@ const useStyles = makeStyles({
 
 const ProductCard = ({product}) => {
     const classes = useStyles();
-    const {itemName, imageId, price, _id} = product;
+    const {itemName, image, price, _id} = product;
     return (
         <Card>
             <CardMedia
                 className={classes.media}
-                image={imageId}
+                image={image}
             />
             <CardContent>
                 <Typography variant="h5" component="h2">{itemName}</Typography>
-                <Typography variant="h5" component="h2">${price.$numberDecimal}</Typography>
+                <Typography variant="h5" component="h2">${price}</Typography>
             </CardContent>
 
             <CardActions>
