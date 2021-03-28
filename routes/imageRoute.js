@@ -16,11 +16,11 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage })
 
-router.post('/api/products', upload.single('avatar'), function (req, res) {
+router.post('/mymarket', upload.single('avatar'), function (req, res) {
   console.log(req.body)
   req.body.image = req.file.originalname;
   Item.create(req.body).then(function(results) {
-    res.redirect("/mymarket", results)
+    res.redirect("/mymarket")
   })
 })
 

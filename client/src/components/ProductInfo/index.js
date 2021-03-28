@@ -37,12 +37,12 @@ const categories = [
   },
 ];
 
-export default function ProductInfo() {
+export default function ProductInfo({handleClose}) {
   const classes = useStyles();
   const { currentUser } = useContext(AuthContext);
 
   return (
-    <form className={classes.root} noValidate autoComplete="off"  action="/api/products" method="post" encType="multipart/form-data"  >
+    <form className={classes.root}   noValidate autoComplete="off"  action="/mymarket" method="post" encType="multipart/form-data"  >
       <div>
         {console.log(currentUser.uid)}
         <input type="hidden" value={currentUser.uid} name="sellerId" />

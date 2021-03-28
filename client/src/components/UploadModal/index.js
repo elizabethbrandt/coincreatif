@@ -47,7 +47,7 @@ function UploadModal() {
 
   const body = (
     <div style={modalStyle} className={classes.paper}>
-      <ProductInfo />
+      <ProductInfo handleClose={handleClose}/>
       {/* <ImageUpload /> */}
     </div>
   );
