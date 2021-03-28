@@ -1,11 +1,8 @@
 import { Grid, Typography } from "@material-ui/core";
-import Autocomplete from "@material-ui/lab/Autocomplete";
 import { useEffect, useState } from "react";
-import TextField from '@material-ui/core/TextField';
 import SearchBar from "../../components/Nav/Searchbar";
 import ProductCard from "../../components/ProductCard";
 import API from "../../utils/products";
-import ComboBox from "../../components/Nav/CategoryMenu";
 
 function Products() {
 

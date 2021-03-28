@@ -1,4 +1,3 @@
-import SearchIcon from '@material-ui/icons/Search';
 import TextField from '@material-ui/core/TextField';
 import FindInPageOutlinedIcon from '@material-ui/icons/FindInPageOutlined';
 
