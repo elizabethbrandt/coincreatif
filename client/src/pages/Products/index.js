@@ -43,7 +43,7 @@ function Products() {
 
 
     return (
-        <Grid container>
+        <Grid container style={{marginBottom: "80px"}}>
 
             <Grid item>
                 <SearchBar products={products} handleInputChange={handleInputChange} searchInput={searchInput}/>
