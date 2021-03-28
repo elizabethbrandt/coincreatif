@@ -61,17 +61,18 @@ export default function ProductInfo() {
 
   const formData = new FormData();
 
-  const handleAppend = (itemField, fileData) => {
-    formData.append(itemField, fileData);
+  const handleAppend = (itemField, value) => {
+    setFileData(itemField, value);
   }
 
   formData.append("image", fileData);
 
   console.log("FILE Data", fileData);
   console.log("FORM Data", formData);
-
+  
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log("Target", e.target.value)
 
     axios.post("/api/products", formData)
       .then((res) => console.log("res", res.data))
@@ -79,7 +80,7 @@ export default function ProductInfo() {
   }
 
   return (
-    <form className={classes.root} noValidate autoComplete="off"  action="/api/products" method="post" encType="multipart/form-data" onSubmit={handleSubmit}>
+    <form className={classes.root} noValidate autoComplete="off"  action="/api/products" method="post" encType="multipart/form-data"  >
       <div>
         <div value={currentUser.uid} name="sellerId"></div>
         <Typography variant="h4">Add Your Product</Typography>
@@ -90,7 +91,7 @@ export default function ProductInfo() {
             label="Item Name"
             placeholder="Product Name"
             variant="outlined"
-            onChange={(e) => {handleAppend("itemName", e.target.value)}}
+           
         />
         {/* Category */}
         <TextField
@@ -99,10 +100,9 @@ export default function ProductInfo() {
             id="outlined-select-currency"
             select
             label="Select item category"
-            value={category}
-            onClick={handleChange}
+            
             variant="outlined"
-            onChange={(e) => {handleAppend("category", e.target.value)}}
+            
             >
             {categories.map((option) => (
                 <MenuItem key={option.value} value={option.value}>
@@ -117,7 +117,7 @@ export default function ProductInfo() {
             label="Item description"
             placeholder="Item Description"
             variant="outlined"
-            onChange={(e) => {handleAppend("description", e.target.value)}}
+           
 
           />
         {/* Price */}
@@ -130,7 +130,7 @@ export default function ProductInfo() {
             InputProps={{startAdornment: <InputAdornment position="start">$</InputAdornment>,
             }}
             variant="outlined"
-            onChange={(e) => {handleAppend("price", e.target.value)}}
+            
         />
         {/* Number Available */}
         <TextField
@@ -139,17 +139,17 @@ export default function ProductInfo() {
             label="Number of items available"
             placeholder="Number of items available"
             variant="outlined"
-            onChange={(e) => {handleAppend("available", e.target.value)}}
+            
           />
       </div>
       <Typography variant="h6">Upload photos</Typography>
       <div className="form-group">
           <input
             type="file"
-            value={images}
+             
             name="avatar"
             accept="image/*"
-            onChange={handleFileChange}
+            
             placeholder="upload image"
             required
             multiple
