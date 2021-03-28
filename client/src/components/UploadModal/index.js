@@ -3,6 +3,7 @@ import { Button, makeStyles, Modal } from '@material-ui/core';
 import PhotoCamera from '@material-ui/icons/PhotoCamera';
 import ImageUpload from '../FileUpload';
 import ProductInfo from '../ProductInfo';
+// import TestInfo from '../ProductInfo/test';
 
 function rand() {
   return Math.round(Math.random() * 20) - 10;
@@ -22,7 +23,7 @@ function getModalStyle() {
 const useStyles = makeStyles((theme) => ({
   paper: {
     position: 'absolute',
-    width: 400,
+    width: 275,
     backgroundColor: theme.palette.background.paper,
     border: '2px solid #000',
     boxShadow: theme.shadows[5],
@@ -55,12 +56,12 @@ function UploadModal() {
     <div>
       <Button
         variant="contained"
-        color="default"
+        color="primary"
         className={classes.button}
         startIcon={<PhotoCamera />}
         onClick={handleOpen}
       >
-        Upload New Product
+        Add New Product
       </Button>
       <Modal
         open={open}
