@@ -1,4 +1,4 @@
-import { Grid } from "@material-ui/core";
+import { Grid, Typography } from "@material-ui/core";
 import { useEffect, useState } from "react";
 import SearchBar from "../../components/Nav/Searchbar";
 import ProductCard from "../../components/ProductCard";
@@ -43,11 +43,16 @@ function Products() {
 
 
     return (
-        <Grid container>
+        <Grid container style={{marginBottom:"60px"}}>
+            <div style={{marginLeft:"auto",marginRight:"auto", marginTop:"10px", marginBottom: "10px", textAlign:"center",}}>
 
-            <Grid item>
-                <SearchBar products={products} handleInputChange={handleInputChange} searchInput={searchInput}/>
-            </Grid>
+            <Typography variant="h3" style={{width:"auto"}} >PRODUCTS:</Typography>
+
+                <SearchBar 
+                products={products} 
+                handleInputChange={handleInputChange} 
+                searchInput={searchInput}/>
+            </div>
             
             <Grid item container>
 

@@ -9,6 +9,7 @@ const styles = {
   appBar: {
     top: "auto",
     bottom: 0,
+    maxHeight: "52px"
   },
 
   
