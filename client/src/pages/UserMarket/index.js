@@ -20,21 +20,22 @@ function Market() {
 
   return (
     <div className={classes.root}>
-      <Typography variant ="h3">
-        MY MARKET
-      </Typography>
+      <Typography variant ="h3">MY MARKET</Typography>
+      
       <Grid container spacing={2}>
+
         <Grid item xs>
           <ProfileCard />
         </Grid>
+
         <Grid item xs>
           <Paper className={classes.paper}>
-            <Typography variant ="h4">
-              MY PRODUCTS
-            </Typography>
-            <UploadModal />
+            <Typography variant ="h4">MY PRODUCTS</Typography>
+            Add product card here (this is in the UserMarket page)
+            <UploadModal/>
           </Paper>
         </Grid>
+
       </Grid>
     </div>
   );

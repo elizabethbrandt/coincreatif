@@ -19,7 +19,7 @@ function Footer({ classes }) {
     <React.Fragment>
       <AppBar position="fixed" color="primary" className={classes.appBar}>
         <Toolbar style={{justifyContent:"center"}}>
-          <Typography  component="body1">© 2021 made with  <FavoriteBorderIcon/></Typography>
+          <Typography  variant="body1">© 2021 made with  <FavoriteBorderIcon/></Typography>
         </Toolbar>
       </AppBar>
     </React.Fragment>

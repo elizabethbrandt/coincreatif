@@ -21,15 +21,19 @@ function ImageUpload() {
 
   console.log("Image", fileData);
 
-  axios.post("/mymarket", formData)
-    .then((res) => console.log("res", res.data))
-    .catch((error) => console.error(error));
+  const handleSubmit = () => {
+
+    axios.post("/api/products", formData)
+      .then((res) => console.log("res", res.data))
+      .catch((error) => console.error(error));
+  }
+
 
   return(
     <div className="container">
       <div className="row">
         {/* Post route action for image to upload using multer */}
-        <form action="/mymarket" method="post" enctype="multipart/form-data">
+        <form action="/api/products" method="post" enctype="multipart/form-data">
           <Typography variant="h6">Upload photos</Typography>
           {/* <img src="/images/${filename}.jpg" alt="${imagename}" /> */}
           <div className="form-group">
@@ -40,13 +44,13 @@ function ImageUpload() {
                 accept="image/*"
                 onChange={handleFileChange}
                 placeholder="upload image"
-                isRequired="true"
+                required
                 multiple
               />
           </div>
           <div className="form-group">
             <br/>
-            <input type="submit"/>
+            <input type="submit" onSubmit={handleSubmit}/>
           </div>
         </form>
       </div>

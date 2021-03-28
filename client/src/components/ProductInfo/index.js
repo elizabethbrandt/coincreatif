@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import MenuItem from '@material-ui/core/MenuItem';
 import { InputAdornment, Typography } from '@material-ui/core';
+import { AuthContext } from "../../utils/Auth";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -36,17 +37,15 @@ const categories = [
   },
 ];
 
-export default function ProductInfo() {
+export default function ProductInfo({handleClose}) {
   const classes = useStyles();
-  const [category, setCategory] = useState('');
-
-  const handleChange = (event) => {
-    setCategory(event.target.value);
-  };
+  const { currentUser } = useContext(AuthContext);
 
   return (
-    <form className={classes.root} noValidate autoComplete="off">
+    <form className={classes.root}   noValidate autoComplete="off"  action="/mymarket" method="post" encType="multipart/form-data"  >
       <div>
+        {console.log(currentUser.uid)}
+        <input type="hidden" value={currentUser.uid} name="sellerId" />
         <Typography variant="h4">Add Your Product</Typography>
         {/* Item Name */}
         <TextField
@@ -55,6 +54,7 @@ export default function ProductInfo() {
             label="Item Name"
             placeholder="Product Name"
             variant="outlined"
+           
         />
         {/* Category */}
         <TextField
@@ -63,9 +63,9 @@ export default function ProductInfo() {
             id="outlined-select-currency"
             select
             label="Select item category"
-            value={category}
-            onChange={handleChange}
+            
             variant="outlined"
+            
             >
             {categories.map((option) => (
                 <MenuItem key={option.value} value={option.value}>
@@ -80,6 +80,8 @@ export default function ProductInfo() {
             label="Item description"
             placeholder="Item Description"
             variant="outlined"
+           
+
           />
         {/* Price */}
         <TextField
@@ -91,6 +93,7 @@ export default function ProductInfo() {
             InputProps={{startAdornment: <InputAdornment position="start">$</InputAdornment>,
             }}
             variant="outlined"
+            
         />
         {/* Number Available */}
         <TextField
@@ -99,8 +102,27 @@ export default function ProductInfo() {
             label="Number of items available"
             placeholder="Number of items available"
             variant="outlined"
+            
           />
       </div>
+      <Typography variant="h6">Upload photos</Typography>
+      <div className="form-group">
+          <input
+            type="file"
+             
+            name="avatar"
+            accept="image/*"
+            
+            placeholder="upload image"
+            required
+            multiple
+          />
+      </div>
+      <div className="form-group">
+        <br/>
+        <input type="submit" />
+      </div>
+
     </form>
   );
 }
