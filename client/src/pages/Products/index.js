@@ -1,8 +1,11 @@
-import { Grid } from "@material-ui/core";
+import { Grid, Typography } from "@material-ui/core";
+import Autocomplete from "@material-ui/lab/Autocomplete";
 import { useEffect, useState } from "react";
+import TextField from '@material-ui/core/TextField';
 import SearchBar from "../../components/Nav/Searchbar";
 import ProductCard from "../../components/ProductCard";
 import API from "../../utils/products";
+import ComboBox from "../../components/Nav/CategoryMenu";
 
 function Products() {
 
@@ -43,11 +46,16 @@ function Products() {
 
 
     return (
-        <Grid container style={{marginBottom: "80px"}}>
+        <Grid container style={{marginBottom:"60px"}}>
+            <div style={{marginLeft:"auto",marginRight:"auto", marginTop:"10px", marginBottom: "10px", textAlign:"center",}}>
 
-            <Grid item>
-                <SearchBar products={products} handleInputChange={handleInputChange} searchInput={searchInput}/>
-            </Grid>
+            <Typography variant="h3" style={{width:"auto"}} >PRODUCTS:</Typography>
+
+                <SearchBar 
+                products={products} 
+                handleInputChange={handleInputChange} 
+                searchInput={searchInput}/>
+            </div>
             
             <Grid item container>
 
