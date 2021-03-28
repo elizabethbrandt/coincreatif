@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, makeStyles, Modal } from '@material-ui/core';
 import PhotoCamera from '@material-ui/icons/PhotoCamera';
-import ImageUpload from '../FileUpload';
+// import ImageUpload from '../FileUpload';
 import ProductInfo from '../ProductInfo';
 // import TestInfo from '../ProductInfo/test';
 

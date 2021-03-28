@@ -67,9 +67,11 @@ export default function ProductInfo() {
 
   formData.append("image", fileData);
 
-  // console.log("Image", fileData);
+  console.log("FILE Data", fileData);
+  console.log("FORM Data", formData);
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
 
     axios.post("/api/products", formData)
       .then((res) => console.log("res", res.data))
@@ -77,7 +79,7 @@ export default function ProductInfo() {
   }
 
   return (
-    <form className={classes.root} noValidate autoComplete="off"  action="/api/products" method="post" encType="multipart/form-data">
+    <form className={classes.root} noValidate autoComplete="off"  action="/api/products" method="post" encType="multipart/form-data" onSubmit={handleSubmit}>
       <div>
         <div value={currentUser.uid} name="sellerId"></div>
         <Typography variant="h4">Add Your Product</Typography>
@@ -155,7 +157,7 @@ export default function ProductInfo() {
       </div>
       <div className="form-group">
         <br/>
-        <input type="submit" onSubmit={handleSubmit}/>
+        <input type="submit" />
       </div>
 
     </form>
