@@ -50,7 +50,6 @@ function ProductModal({itemId}) {
       API.getItemData(itemId)
           .then(({ data }) => {
               setItem(data)
-              console.log("Data", data)
           })
   }, [itemId]);
 
