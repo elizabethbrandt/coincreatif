@@ -1,11 +1,8 @@
 import React from 'react';
-import CssBaseline from '@material-ui/core/CssBaseline';
-
-import {Container, Grid, Typography, } from '@material-ui/core';
+import {Container, Grid, Typography, makeStyles} from '@material-ui/core';
 import CartCard from './cartCard';
 import Checkout from './checkout';
 import MuiAlert from '@material-ui/lab/Alert';
-import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -26,7 +23,7 @@ export default function Cart() {
   return (
  
       
-      <Container maxWidth="lg">
+      <Container maxWidth="lg" style={{marginBottom:"60px"}}>
 
         <Grid container spacing={3} className={classes.root}>
             

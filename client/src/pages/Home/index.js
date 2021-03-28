@@ -8,9 +8,7 @@ function Project(props) {
     return (
         <Paper
             className="Project"
-            style={{
-                backgroundColor: props.item.color,
-            }}
+            style={{backgroundColor: props.item.color,}}
             elevation={10}
         >
             <img alt="product"

@@ -1,8 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
-
-import { CardMedia } from '@material-ui/core';
+import { CardMedia, Card } from '@material-ui/core';
 
 const useStyles = makeStyles({
   root: {

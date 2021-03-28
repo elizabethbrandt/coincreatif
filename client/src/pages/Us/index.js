@@ -1,9 +1,9 @@
 import React from 'react';
-import {CardMedia, Container, Grid, Typography, } from '@material-ui/core';
+import {CardMedia, Grid} from '@material-ui/core';
 import ProfileCard1 from './profile1';
 import ProfileCard2 from './profile2';
 import { makeStyles } from '@material-ui/core/styles';
-
+import MuiAlert from '@material-ui/lab/Alert';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -12,10 +12,15 @@ const useStyles = makeStyles((theme) => ({
     },
   }));
 
+  function Alert(props) {
+    return <MuiAlert elevation={6} variant="filled" {...props} />;
+  }
+
 export default function Us() {
     const classes = useStyles();
   return (
-        <div>
+        <div style={{marginBottom:"50px"}}>
+          <Alert severity="info">Feel free to contact any of us with questions!</Alert>
           <CardMedia
           image="https://images.pexels.com/photos/1117542/pexels-photo-1117542.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260"
           title="Arts and Crafts Background">

@@ -8,7 +8,6 @@ import StorefrontTwoToneIcon from '@material-ui/icons/StorefrontTwoTone';
 import FilterVintageIcon from '@material-ui/icons/FilterVintage';
 import LooksIcon from '@material-ui/icons/Looks';
 import ListIcon from '@material-ui/icons/List';
-//import ProductCard from '../ProductCard';
 import app from "../../utils/base";
 
 const useStyles = makeStyles({

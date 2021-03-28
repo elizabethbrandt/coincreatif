@@ -1,14 +1,9 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
-import CardActionArea from '@material-ui/core/CardActionArea';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
-import Typography from '@material-ui/core/Typography';
+import {Card, CardActionArea, CardActions, CardContent,CardMedia,Typography, IconButton} from '@material-ui/core';
 import GitHubIcon from '@material-ui/icons/GitHub';
-import {IconButton} from '@material-ui/core';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
+
 
 const useStyles = makeStyles({
   root: {
@@ -50,14 +45,12 @@ export default function ProfileCard2() {
                 </CardContent>
             </CardActionArea>
             <CardActions className={classes.icons}>
-            <IconButton>
-                <GitHubIcon fontSize="large" color="secondary"
-                href="https://github.com/Am-White"/>
+            <IconButton component="a"  href="https://github.com/Am-White">
+                <GitHubIcon fontSize="large" color="secondary"/>
                 </IconButton>
 
-                <IconButton>
-                <LinkedInIcon fontSize="large" color="secondary"
-                href="https://www.linkedin.com/in/amethyst-white-1942761b7/"/>
+                <IconButton component="a" href="https://www.linkedin.com/in/amethyst-white-1942761b7/">
+                <LinkedInIcon fontSize="large" color="secondary"/>
                 </IconButton>
             </CardActions>
             </Card>
@@ -78,14 +71,12 @@ export default function ProfileCard2() {
             </CardContent>
         </CardActionArea>
         <CardActions className={classes.icons}>
-        <IconButton>
-            <GitHubIcon fontSize="large" color="secondary"
-            href="https://github.com/jkaganovsky"/>
+        <IconButton component="a" href="https://github.com/jkaganovsky">
+            <GitHubIcon fontSize="large" color="secondary"/>
             </IconButton>
 
-            <IconButton>
-            <LinkedInIcon fontSize="large" color="secondary"
-            href="https://www.linkedin.com/in/jailanie-kaganovsky-573a00116/"/>
+            <IconButton component="a" href="https://www.linkedin.com/in/jailanie-kaganovsky-573a00116/">
+            <LinkedInIcon fontSize="large" color="secondary"/>
             </IconButton>
         </CardActions>
         </Card>

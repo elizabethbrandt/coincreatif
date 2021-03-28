@@ -16,7 +16,7 @@ function Products() {
     }, []);
 
     return (
-        <Grid container>
+        <Grid container style={{marginBottom:"100px"}}>
             <Grid item container>
 
                 {/* Gutter space */}
