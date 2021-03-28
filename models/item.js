@@ -4,33 +4,33 @@ const Schema = mongoose.Schema;
 const itemSchema = new Schema({
     sellerId: {
         type: String,
-        required: true,
+        // required: true,
         ref: "User"
     },
     itemName: {
         type: String,
-        required: true
+        // required: true
     },
     category: {
         type: String,
-        required: true,
+        // required: true,
         enum: ["Art", "Jewelry", "Clothing", "Home Decor", "Entertainment"]
     },
     description: {
         type: String,
-        required: true
+        // required: true
     },
     price: {
         type: Number,
-        required: true
+        // required: true
     },
     available: {
         type: Number,
-        required: true
+        // required: true
     },
     image: {
         type: String,
-        required: true
+        // required: true
     },
 });
 

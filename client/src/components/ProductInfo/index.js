@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import MenuItem from '@material-ui/core/MenuItem';
 import { InputAdornment, Typography } from '@material-ui/core';
+import { AuthContext } from "../../utils/Auth";
+import axios from 'axios';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -38,15 +40,46 @@ const categories = [
 
 export default function ProductInfo() {
   const classes = useStyles();
+  const { currentUser } = useContext(AuthContext);
   const [category, setCategory] = useState('');
 
   const handleChange = (event) => {
     setCategory(event.target.value);
   };
 
+  // Sets a state that manages the file value and decoded image file
+  const [fileData, setFileData] = useState();
+
+  // Sets a state that reads the image path on every change and sets it as the file input field value
+  const [images, setFile] = useState("");
+
+  // Function to handle the file change where files[0] holds the full information of the uploaded image
+  const handleFileChange = e => {
+    setFileData(e.target.files[0]); // Full information about the image
+    setFile(e.target.value); // Value of the image
+  };
+
+  const formData = new FormData();
+
+  const handleAppend = (itemField, fileData) => {
+    formData.append(itemField, fileData);
+  }
+
+  formData.append("image", fileData);
+
+  // console.log("Image", fileData);
+
+  const handleSubmit = () => {
+
+    axios.post("/api/products", formData)
+      .then((res) => console.log("res", res.data))
+      .catch((error) => console.error(error));
+  }
+
   return (
-    <form className={classes.root} noValidate autoComplete="off">
+    <form className={classes.root} noValidate autoComplete="off"  action="/api/products" method="post" encType="multipart/form-data">
       <div>
+        <div value={currentUser.uid} name="sellerId"></div>
         <Typography variant="h4">Add Your Product</Typography>
         {/* Item Name */}
         <TextField
@@ -55,6 +88,7 @@ export default function ProductInfo() {
             label="Item Name"
             placeholder="Product Name"
             variant="outlined"
+            onChange={(e) => {handleAppend("itemName", e.target.value)}}
         />
         {/* Category */}
         <TextField
@@ -64,8 +98,9 @@ export default function ProductInfo() {
             select
             label="Select item category"
             value={category}
-            onChange={handleChange}
+            onClick={handleChange}
             variant="outlined"
+            onChange={(e) => {handleAppend("category", e.target.value)}}
             >
             {categories.map((option) => (
                 <MenuItem key={option.value} value={option.value}>
@@ -80,6 +115,8 @@ export default function ProductInfo() {
             label="Item description"
             placeholder="Item Description"
             variant="outlined"
+            onChange={(e) => {handleAppend("description", e.target.value)}}
+
           />
         {/* Price */}
         <TextField
@@ -91,6 +128,7 @@ export default function ProductInfo() {
             InputProps={{startAdornment: <InputAdornment position="start">$</InputAdornment>,
             }}
             variant="outlined"
+            onChange={(e) => {handleAppend("price", e.target.value)}}
         />
         {/* Number Available */}
         <TextField
@@ -99,8 +137,27 @@ export default function ProductInfo() {
             label="Number of items available"
             placeholder="Number of items available"
             variant="outlined"
+            onChange={(e) => {handleAppend("available", e.target.value)}}
           />
       </div>
+      <Typography variant="h6">Upload photos</Typography>
+      <div className="form-group">
+          <input
+            type="file"
+            value={images}
+            name="avatar"
+            accept="image/*"
+            onChange={handleFileChange}
+            placeholder="upload image"
+            required
+            multiple
+          />
+      </div>
+      <div className="form-group">
+        <br/>
+        <input type="submit" onSubmit={handleSubmit}/>
+      </div>
+
     </form>
   );
 }
