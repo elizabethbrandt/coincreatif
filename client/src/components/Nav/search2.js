@@ -1,7 +1,7 @@
 import SearchIcon from '@material-ui/icons/Search';
 import InputBase from '@material-ui/core/InputBase';
 
-const SearchBar = ({handleInputChange}) => {
+const Search2 = ({handleInputChange}) => {
 
     return (
         <div >
@@ -19,4 +19,4 @@ const SearchBar = ({handleInputChange}) => {
       }
 
 
-export default SearchBar;
+export default Search2;
