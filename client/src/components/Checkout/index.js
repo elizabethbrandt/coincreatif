@@ -1,45 +1,30 @@
-import React from "react";
-import { Redirect, Link } from 'react-router-dom';
+import React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import { CardMedia, Card } from '@material-ui/core';
 
-export default class Checkout extends React.Component {
-  constructor(props) {
-    super(props);
-      this.state = { products: [], total: 0 }
-  }
+const useStyles = makeStyles({
+  root: {
+    width: "auto",
+    marginTop: "50px"
+  },
+  media: {
+    height: "500px",
+    maxHeight: "550px",
+    width: "100%",
+    objectFit: "cover",
+    display: "flex"
+  },
+});
 
-  componentDidMount() {
-    let cart = localStorage.getItem('cart');
-    if (!cart) return;
-    getCartProducts(cart).then((products) => {
-      let total = 0;
-      for (var i 0; i < products.length; i++) {
-      total += products[i].price * products[i].qty;
-    }
-    this.setState({ products, total });
-  });
-}
+export default function Checkout() {
+  const classes = useStyles();
 
-pay = () => pay().then(data => alert(data)).catch(err => console.log(err))
-
-render() {
-  if (!isAuthenticated()) return (<Redirect to="/login" />);
-  const { products, total } = this.state;
   return (
-    <div className=" container">
-      <h3 className="card-title">Checkout</h3><hr />
-      { products.map((product, index) =>
-        <div key={index}>
-          <p>{product.name} <small> (quantity: {product.qty})</small>
-            <span className="float-right text-primary">${product.qty * product.price}
-            </span></p><hr />
-        </div>
-      )} <hr />
-      { products.length ?
-        <div><h4><small>Total Amount:</small><span className="float-right text-primary">
-          ${total}</span></h4><hr /></div> : ''}
-      <Link to="/"><button className="btn btn-danger float-right"
-        style={{ marginRight: "10px" }}>Cancel</button></Link><br /><br /><br />
-    </div>
-   );
- }
+    <Card className={classes.root}>
+      <CardMedia
+        className={classes.media}
+      image="https://i.ibb.co/kJZHnCJ/Screen-Shot-2021-03-27-at-1-23-54-PM.png"
+      title="product"/>
+    </Card>
+  );
 }

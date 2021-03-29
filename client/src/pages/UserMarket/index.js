@@ -26,7 +26,7 @@ function Market() {
   return (
     <div className={classes.root}>
       <Typography variant ="h3">MY MARKET</Typography>
-      
+
       <Grid container spacing={2}>
 
         <Grid item xs={12}>
@@ -42,7 +42,7 @@ function Market() {
                 My Products:
               </Typography>
               <Typography variant="body2" color="textSecondary" component="p">
-                <Alert severity="warning" style={{justifyContent:"center"}}>Coming soon! Here will be where you will be 
+                <Alert severity="warning" style={{justifyContent:"center"}}>Coming soon! Here will be where you will be
                   able to maintain your products you have posted.</Alert>
                     <br></br>
                   <Alert severity="success" style={{justifyContent:"center"}}>You are able to add items below!</Alert>
@@ -51,7 +51,7 @@ function Market() {
           </CardActionArea>
 
               <UploadModal />
-            
+
         </Card>
         </Grid>
 

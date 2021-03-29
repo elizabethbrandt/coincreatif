@@ -4,6 +4,7 @@ import FavoriteBorder from '@material-ui/icons/FavoriteBorder';
 import { FormControlLabel, Checkbox } from '@material-ui/core';
 
 function FavoriteBtn() {
+  // ADD FUTURE DEVELOPMENT: set favorites to be saved and viewed to a favorites collection
   // const [favorites, setFavorites] = useState();
 
   // const addFav = (props: any) => {
