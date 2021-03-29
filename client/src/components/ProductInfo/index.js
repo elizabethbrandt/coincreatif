@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import MenuItem from '@material-ui/core/MenuItem';
-import { InputAdornment, Typography } from '@material-ui/core';
+import { Button, InputAdornment, Typography } from '@material-ui/core';
 import { AuthContext } from "../../utils/Auth";
 
 const useStyles = makeStyles((theme) => ({
@@ -46,7 +46,7 @@ export default function ProductInfo({handleClose}) {
       <div>
         {console.log(currentUser.uid)}
         <input type="hidden" value={currentUser.uid} name="sellerId" />
-        <Typography variant="h4">Add Your Product</Typography>
+        <Typography variant="h4">Add Product</Typography>
         {/* Item Name */}
         <TextField
             required
@@ -105,14 +105,15 @@ export default function ProductInfo({handleClose}) {
 
           />
       </div>
+      <br/>
       <Typography variant="h6">Upload photos</Typography>
+      <Typography variant="subtitle2">*File name cannot contain any spaces or special characters</Typography>
+      <br/>
       <div className="form-group">
           <input
             type="file"
-
             name="image"
             accept="image/*"
-
             placeholder="upload image"
             required
             multiple
@@ -120,7 +121,7 @@ export default function ProductInfo({handleClose}) {
       </div>
       <div className="form-group">
         <br/>
-        <input type="submit" />
+        <Button type="submit" variant="outlined" color="secondary">Send product to market</Button>
       </div>
 
     </form>

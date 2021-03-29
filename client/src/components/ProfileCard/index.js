@@ -36,6 +36,7 @@ function ProfileCard() {
               src="https://avataaars.io/?avatarStyle=Circle&topType=ShortHairFrizzle&accessoriesType=Prescription02&hairColor=BrownDark&facialHairType=BeardMedium&facialHairColor=BrownDark&clotheType=BlazerShirt&eyeType=EyeRoll&eyebrowType=DefaultNatural&mouthType=Eating&skinColor=Light"
               className={classes.large}
             />
+            <br/>
             <Typography variant="h5" textAlign="right">My Profile:</Typography>
         <Grid container spacing={2}>
           
@@ -45,9 +46,9 @@ function ProfileCard() {
           <Grid item xs={12} sm>
             <Paper className={classes.paper}>
               <Typography variant="subtitle1">
-              my email: {currentUser.email}
+              {currentUser.email}
               <br></br>
-              my user id: {currentUser.uid}
+              {/* my user id: {currentUser.uid} */}
               </Typography>
             </Paper>
             <Grid item xs={12} sm>

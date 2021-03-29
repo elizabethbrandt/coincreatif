@@ -1,7 +1,7 @@
 import React from 'react';
 import Carousel from 'react-material-ui-carousel';
 import autoBind from 'auto-bind';
-import {Paper} from '@material-ui/core';
+import {Button, Paper} from '@material-ui/core';
 import SimplePaper from './aboutUs';
 
 function Project(props) {
@@ -74,6 +74,7 @@ export default class MyProjectsExample extends React.Component {
                         })
                     }
                 </Carousel>
+                {/* <Button variant="contained" color="secondary" component="a" href="/products" style={{flex:1, flexDirection:'row', justifyContent:"center", alignItems:'center', }}>Browse the Marketplace</Button> */}
 
                 <SimplePaper/>
             </div>
