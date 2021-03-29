@@ -1,7 +1,7 @@
 import React from 'react';
 import {Container, Grid, Typography, makeStyles} from '@material-ui/core';
-import CartCard from './cartCard';
-import Checkout from './checkout';
+import CartCard from '../../components/Cart';
+import Checkout from '../../components/Checkout';
 import MuiAlert from '@material-ui/lab/Alert';
 
 const useStyles = makeStyles((theme) => ({
@@ -21,12 +21,12 @@ const useStyles = makeStyles((theme) => ({
 export default function Cart() {
     const classes = useStyles();
   return (
- 
-      
+
+
       <Container maxWidth="lg" style={{marginBottom:"60px"}}>
 
         <Grid container spacing={3} className={classes.root}>
-            
+
             <Grid item xs={7}>
               <Typography className={classes.title} variant="h3">YOUR CART:</Typography>
               <Alert severity="error">You cannot currently checkout! COMING SOON</Alert>
@@ -40,6 +40,6 @@ export default function Cart() {
             </Grid>
         </Grid>
       </Container>
-   
+
   );
 }
