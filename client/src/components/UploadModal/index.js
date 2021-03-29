@@ -1,9 +1,7 @@
 import React from 'react';
 import { Button, makeStyles, Modal } from '@material-ui/core';
 import PhotoCamera from '@material-ui/icons/PhotoCamera';
-// import ImageUpload from '../FileUpload';
 import ProductInfo from '../ProductInfo';
-// import TestInfo from '../ProductInfo/test';
 
 function rand() {
   return Math.round(Math.random() * 20) - 10;
@@ -48,7 +46,6 @@ function UploadModal() {
   const body = (
     <div style={modalStyle} className={classes.paper}>
       <ProductInfo handleClose={handleClose}/>
-      {/* <ImageUpload /> */}
     </div>
   );
 
