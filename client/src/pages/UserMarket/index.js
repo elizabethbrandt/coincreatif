@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { Grid, makeStyles,CardActionArea, Card, Typography, CardContent } from "@material-ui/core";
 import ProfileCard from "../../components/ProfileCard";
 import UploadModal from "../../components/UploadModal";
-import Alert from '@material-ui/lab/Alert';
+// import Alert from '@material-ui/lab/Alert';
 import { AuthContext } from "../../utils/Auth";
 import API from "../../utils/products";
 import ProductCard from "../../components/ProductCard";
@@ -36,21 +36,18 @@ function Market() {
           })
   }, []);
 
-  // const [seller, setSeller] = useState([]);
-
-  // useEffect(() => {
-  //   products.map(product => setSeller(products.sellerId))
-  // })
+  const seller = products.map(productSeller => productSeller.sellerId)
 
   useEffect(() => {
     let items = products.length
         ? products.filter((data) => {
-          const condition = currentUser.uid === products.sellerId;
+          const condition = currentUser.uid === seller.sellerId;
+          console.log("condition", currentUser.uid === seller.sellerId)
           return condition;
         })
         : [];
     setFilteredProducts(items);
-}, [currentUser.uid, products]);
+}, [currentUser.uid, products, seller.sellerId]);
 
   return (
     <div className={classes.root}>
@@ -67,13 +64,13 @@ function Market() {
         <Card className={classes.paper}>
           <CardActionArea>
             <CardContent>
-              <Typography gutterBottom variant="h5" component="h2">
+              <Typography gutterBottom variant="h4">
                 My Products:
               </Typography>
               <Typography variant="body2" color="textSecondary" component="p">
                 {console.log(currentUser.uid)}
-                {console.log(products)}
-                {/* {console.log(seller)} */}
+                {console.log(filteredProducts)}
+                {console.log(seller)}
                 {filteredProducts.length ? 
                   filteredProducts.map(product => (
                     <Grid item xs={12} sm={4}>
@@ -84,8 +81,8 @@ function Market() {
 
                 {/* <Alert severity="warning" style={{justifyContent:"center"}}>Coming soon! Here will be where you will be
                   able to maintain your products you have posted.</Alert>
-                    <br></br>
-                  <Alert severity="success" style={{justifyContent:"center"}}>You are able to add items below!</Alert> */}
+                    <br></br> */}
+                  {/* <Alert severity="success" style={{justifyContent:"center"}}>You are able to add items below!</Alert> */}
               </Typography>
             </CardContent>
           </CardActionArea>
