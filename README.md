@@ -34,30 +34,30 @@ This is an application for artist and creative types. Using react we've made a u
 
 <h4 align="center">
 
-[Live Application on Heroku](#)
+[Live Application on Heroku](https://coincreatif.herokuapp.com/)
 
 </h4>
 
-<h2 align="center">Figure Showing ???: 
+<h2 align="center">Figure Showing Main Page: 
 
 =============================
 </h2>
 
-![Tables]()
+![Main](client/public/images/mainpage.png)
 
-<h2 align="center">🎥 Main Page:
-
-=============================
-</h2>
-
-![Login]()
-
-<h2 align="center">🎥 ??? Page:
+<h2 align="center">Figure Showing Product Page:
 
 =============================
 </h2>
 
-![Main]()
+![Product](client/public/images/product.png)
+
+<h2 align="center">Figure Showing Cart Page:
+
+=============================
+</h2>
+
+![Cart](client/public/images/cart.png)
 
 
 <h2 align="center">User Story
@@ -66,9 +66,9 @@ This is an application for artist and creative types. Using react we've made a u
 </h2>
 
 ```
-AS A USER 
-I WANT TO 
-SO THAT I CAN
+AS A USER
+I WANT TO
+SO THAT I
 ```
 
 <h2 align="center">Technology Used
@@ -84,6 +84,8 @@ SO THAT I CAN
 - Node
 - Heroku : for deployment
 - if-env
+- Marterial- UI
+
 ```
 
 <h2 align="center">Future Development
@@ -92,7 +94,7 @@ SO THAT I CAN
 </h2>
 
 ```
-Our future plans to further develop this application are...
+Our future plans to further develop this application are to get the cart fully functioning using Stripe, add in the ability to delete and alter products that you as a seller have posted, and to add in geo location that will connect sellers and buyers to items in their area.
 
 ```
 
