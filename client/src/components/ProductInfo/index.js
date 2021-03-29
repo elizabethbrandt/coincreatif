@@ -54,7 +54,7 @@ export default function ProductInfo({handleClose}) {
             label="Item Name"
             placeholder="Product Name"
             variant="outlined"
-           
+
         />
         {/* Category */}
         <TextField
@@ -63,9 +63,9 @@ export default function ProductInfo({handleClose}) {
             id="outlined-select-currency"
             select
             label="Select item category"
-            
+
             variant="outlined"
-            
+
             >
             {categories.map((option) => (
                 <MenuItem key={option.value} value={option.value}>
@@ -80,7 +80,7 @@ export default function ProductInfo({handleClose}) {
             label="Item description"
             placeholder="Item Description"
             variant="outlined"
-           
+
 
           />
         {/* Price */}
@@ -93,7 +93,7 @@ export default function ProductInfo({handleClose}) {
             InputProps={{startAdornment: <InputAdornment position="start">$</InputAdornment>,
             }}
             variant="outlined"
-            
+
         />
         {/* Number Available */}
         <TextField
@@ -102,17 +102,17 @@ export default function ProductInfo({handleClose}) {
             label="Number of items available"
             placeholder="Number of items available"
             variant="outlined"
-            
+
           />
       </div>
       <Typography variant="h6">Upload photos</Typography>
       <div className="form-group">
           <input
             type="file"
-             
-            name="avatar"
+
+            name="image"
             accept="image/*"
-            
+
             placeholder="upload image"
             required
             multiple
