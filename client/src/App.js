@@ -12,6 +12,7 @@ import Footer from './pages/Footer/index';
 import { AuthProvider } from "./utils/Auth";
 import PrivateRoute from "./utils/PrivateRoute";
 import Us from "./pages/Us/index.js"
+import Art from './pages/Art';
 
 function App() {
   return (
@@ -29,6 +30,8 @@ function App() {
           <PrivateRoute exact path="/cart" component={Cart} />
           <Route exact path="/search" component={Search} />
           <Route exact path="/us" component={Us} />
+          <Route exact path="/art" component={Art} />
+
         </Switch>
         <Footer />
       </div>
