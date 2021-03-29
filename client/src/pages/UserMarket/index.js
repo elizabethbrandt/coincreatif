@@ -36,18 +36,18 @@ function Market() {
           })
   }, []);
 
-  const seller = products.map(productSeller => productSeller.sellerId)
+  // const seller = products.map(productSeller => productSeller.sellerId)
 
   useEffect(() => {
     let items = products.length
         ? products.filter((data) => {
-          const condition = currentUser.uid === seller.sellerId;
-          console.log("condition", currentUser.uid === seller.sellerId)
+          const condition = currentUser.uid === data.sellerId;
+          console.log("condition", currentUser.uid === data.sellerId)
           return condition;
         })
         : [];
     setFilteredProducts(items);
-}, [currentUser.uid, products, seller.sellerId]);
+}, [currentUser.uid, products]);
 
   return (
     <div className={classes.root}>
@@ -70,7 +70,7 @@ function Market() {
               <Typography variant="body2" color="textSecondary" component="p">
                 {console.log(currentUser.uid)}
                 {console.log(filteredProducts)}
-                {console.log(seller)}
+                {/* {console.log()} */}
                 {filteredProducts.length ? 
                   filteredProducts.map(product => (
                     <Grid item xs={12} sm={4}>
