@@ -70,31 +70,31 @@ export default function TemporaryDrawer() {
           </ListItem>
         ))}
         {['Jewelry/Accessories'].map((text) => (
-          <ListItem button component="a" href="#" key={text}>
+          <ListItem button component="a" href="/jewelry" key={text}>
             <ListItemIcon><LooksIcon /></ListItemIcon>
             <ListItemText primary={text} />
           </ListItem>
         ))}
         {['Home/Decor'].map((text) => (
-          <ListItem button component="a" href="#" key={text}>
+          <ListItem button component="a" href="/home-decor" key={text}>
             <ListItemIcon><FilterVintageIcon /></ListItemIcon>
             <ListItemText primary={text} />
           </ListItem>
         ))}
         {['Clothes/Shoes'].map((text) => (
-          <ListItem button component="a" href="#" key={text}>
+          <ListItem button component="a" href="/clothing" key={text}>
             <ListItemIcon><LooksIcon /></ListItemIcon>
             <ListItemText primary={text} />
           </ListItem>
         ))}
         {['Handmade Art'].map((text) => (
-          <ListItem button component="a" href="#" key={text}>
+          <ListItem button component="a" href="/art" key={text}>
             <ListItemIcon><FilterVintageIcon /></ListItemIcon>
             <ListItemText primary={text} />
           </ListItem>
         ))}
         {['Entertainment'].map((text) => (
-          <ListItem button component="a" href="#" key={text}>
+          <ListItem button component="a" href="/entertainment" key={text}>
             <ListItemIcon><LooksIcon /></ListItemIcon>
             <ListItemText primary={text} />
           </ListItem>
