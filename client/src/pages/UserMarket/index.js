@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Grid, makeStyles,CardActionArea, Card, Typography, CardContent } from "@material-ui/core";
 import ProfileCard from "../../components/ProfileCard";
 import UploadModal from "../../components/UploadModal";
 import Alert from '@material-ui/lab/Alert';
+import { AuthContext } from "../../utils/Auth";
+import API from "../../utils/products";
+import ProductCard from "../../components/ProductCard";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -22,6 +25,32 @@ const useStyles = makeStyles((theme) => ({
 
 function Market() {
   const classes = useStyles();
+  const [products, setProducts] = useState([]);
+  const [filteredProducts, setFilteredProducts] = useState([]);
+  const { currentUser } = useContext(AuthContext);
+
+  useEffect(() => {
+      API.getProductData()
+          .then(({ data }) => {
+              setProducts(data)
+          })
+  }, []);
+
+  // const [seller, setSeller] = useState([]);
+
+  // useEffect(() => {
+  //   products.map(product => setSeller(products.sellerId))
+  // })
+
+  useEffect(() => {
+    let items = products.length
+        ? products.filter((data) => {
+          const condition = currentUser.uid === products.sellerId;
+          return condition;
+        })
+        : [];
+    setFilteredProducts(items);
+}, [currentUser.uid, products]);
 
   return (
     <div className={classes.root}>
@@ -42,10 +71,21 @@ function Market() {
                 My Products:
               </Typography>
               <Typography variant="body2" color="textSecondary" component="p">
-                <Alert severity="warning" style={{justifyContent:"center"}}>Coming soon! Here will be where you will be
+                {console.log(currentUser.uid)}
+                {console.log(products)}
+                {/* {console.log(seller)} */}
+                {filteredProducts.length ? 
+                  filteredProducts.map(product => (
+                    <Grid item xs={12} sm={4}>
+                        <ProductCard product={product} key={product._id}  />
+                    </Grid>
+                ))
+                : <Typography>You do not have any products on the market</Typography>}
+
+                {/* <Alert severity="warning" style={{justifyContent:"center"}}>Coming soon! Here will be where you will be
                   able to maintain your products you have posted.</Alert>
                     <br></br>
-                  <Alert severity="success" style={{justifyContent:"center"}}>You are able to add items below!</Alert>
+                  <Alert severity="success" style={{justifyContent:"center"}}>You are able to add items below!</Alert> */}
               </Typography>
             </CardContent>
           </CardActionArea>
