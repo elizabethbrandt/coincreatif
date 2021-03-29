@@ -16,7 +16,7 @@ function FavoriteCard() {
   return (
     <Paper className={classes.paper}>
       <Typography variant="h4">
-        MY FAVORITES
+        My Favorites:
       </Typography>
       <Alert severity="warning" style={{justifyContent:"center"}}>
         Coming soon! Here will be all your favorite items

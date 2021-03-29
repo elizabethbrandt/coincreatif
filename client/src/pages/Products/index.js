@@ -46,8 +46,8 @@ function Products() {
         <Grid container style={{marginBottom:"60px"}}>
             <div style={{marginLeft:"auto",marginRight:"auto", marginTop:"10px", marginBottom: "10px", textAlign:"center",}}>
 
-            <Typography variant="h3" style={{width:"auto"}} >PRODUCTS:</Typography>
-
+            <Typography variant="h3" style={{width:"auto"}} >Marketplace</Typography>
+                <br />
                 <SearchBar 
                 products={products} 
                 handleInputChange={handleInputChange} 

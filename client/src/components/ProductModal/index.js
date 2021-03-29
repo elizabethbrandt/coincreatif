@@ -62,7 +62,7 @@ function ProductModal({itemId}) {
   return (
     <div>
 
-      <InfoIcon className={classes.button} onClick={handleOpen} color="primary" fontSize="large"/>
+      <InfoIcon className={classes.button} onClick={handleOpen} color="secondary" fontSize="large"/>
 
       <Modal
         open={open}

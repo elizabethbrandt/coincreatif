@@ -41,12 +41,12 @@ export default function SimplePaper() {
 
             <Button
             component="a"
-            variant="contained"
+            variant="outlined"
             color="secondary"
             href="/us"
           >
             <ContactsIcon/> 
-              Meet the developers!
+              Meet the developers
             </Button>
           </Typography>
       </Paper>
@@ -55,7 +55,7 @@ export default function SimplePaper() {
               Our Goal
           </Typography>
           <Typography variant="body1">
-              We want to make a simple and accessible platform for artists and creators to show,
+              At Coin Créatif, we want to make a simple and accessible platform for artists and creators to show,
               promote and sell their work.
           </Typography>
             <br></br>
@@ -68,16 +68,15 @@ export default function SimplePaper() {
               Our Dream
           </Typography>
           <Typography variant="body1">
-              We have big dreams for this site! We want to be able to connect people in the areas
-              they live in to items available near there in the future and much more!
+              We have big dreams for this site! Our primary focus in the future is connect buyers with local artists in order to promote growth and artistry in the community.
               <Button
             component="a"
-            variant="contained"
+            variant="outlined"
             color="secondary"
             href="https://github.com/elizabethbrandt/coincreatif"
           >
             <SettingsIcon/> 
-              Take a look at our code!
+              Take a look at our code
             </Button>
           </Typography>
       </Paper>

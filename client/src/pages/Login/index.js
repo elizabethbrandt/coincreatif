@@ -42,7 +42,8 @@ const Login = ({ history }) => {
       alignItems: "center",
       marginBottom:"100px"}} >
         
-      <h1>Log in</h1>
+      <Typography variant="h3">Log In</Typography>
+      <br/>
       
       <form onSubmit={handleLogin}>
 
@@ -67,7 +68,7 @@ const Login = ({ history }) => {
           variant="outlined">
           </TextField>
           <br/>
-        
+          
           <Button 
           type="submit" 
           variant="contained" 
@@ -80,8 +81,8 @@ const Login = ({ history }) => {
         
       </form> 
 
-        <Typography>Don't have an account yet?
-            <Link color="secondary" disableElevation href="/signup" >Signup</Link>
+        <Typography>Don't have an account?
+            <Link color="secondary" disableElevation href="/signup" > Sign Up</Link>
         </Typography>
 
         <div>
@@ -92,8 +93,8 @@ const Login = ({ history }) => {
         <IfUnAuthedFB />
         </Button>
         </div>
-
-        <p>You do not need to sign up if you have a google or facebook account</p>
+        <br/>
+        <Typography variant="subtitle2">You do not need to sign up if you have a Google or Facebook account</Typography>
     </Paper>
     
   );

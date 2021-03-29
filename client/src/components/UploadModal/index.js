@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, makeStyles, Modal } from '@material-ui/core';
-import PhotoCamera from '@material-ui/icons/PhotoCamera';
 import ProductInfo from '../ProductInfo';
+import AddIcon from '@material-ui/icons/Add';
 
 function rand() {
   return Math.round(Math.random() * 20) - 10;
@@ -53,9 +53,9 @@ function UploadModal() {
     <div>
       <Button
         variant="contained"
-        color="primary"
+        color="secondary"
         className={classes.button}
-        startIcon={<PhotoCamera />}
+        startIcon={<AddIcon />}
         onClick={handleOpen}
       >
         Add New Product
