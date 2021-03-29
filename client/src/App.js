@@ -12,7 +12,12 @@ import Footer from './pages/Footer/index';
 import { AuthProvider } from "./utils/Auth";
 import PrivateRoute from "./utils/PrivateRoute";
 import Us from "./pages/Us/index.js"
-import Art from './pages/Art';
+import Art from './pages/Categories/Art';
+import Jewelry from "./pages/Categories/Jewelry"
+import HomeDecor from './pages/Categories/HomeDecor';
+import Clothing from './pages/Categories/Clothing';
+import Entertainment from './pages/Categories/Entertainment';
+import NotFound from './pages/NotFound';
 
 function App() {
   return (
@@ -31,6 +36,11 @@ function App() {
           <Route exact path="/search" component={Search} />
           <Route exact path="/us" component={Us} />
           <Route exact path="/art" component={Art} />
+          <Route exact path="/jewelry" component={Jewelry} />
+          <Route exact path="/clothing" component={Clothing} />
+          <Route exact path="/home-decor" component={HomeDecor} />
+          <Route exact path="/entertainment" component={Entertainment} />
+          <Route component={NotFound} />
 
         </Switch>
         <Footer />

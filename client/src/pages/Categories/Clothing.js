@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import ProductCard from "../../components/ProductCard";
 import API from "../../utils/products";
 
-function Art() {
+function Clothing() {
 
 
     const [products, setProducts] = useState([]);
@@ -20,7 +20,7 @@ function Art() {
         let items = products.length
             ? products.filter((data) => {
                 const condition =
-                data.category.includes("Art")
+                data.category.includes("Clothing")
                 return condition;
             })
             : [];
@@ -31,7 +31,7 @@ function Art() {
         <Grid container style={{marginBottom:"60px"}}>
             <div style={{marginLeft:"auto",marginRight:"auto", marginTop:"10px", marginBottom: "10px", textAlign:"center",}}>
 
-            <Typography variant="h3" style={{width:"auto"}} >PRODUCTS:</Typography>
+            <Typography variant="h3" style={{width:"auto"}} >Marketplace</Typography>
 
             </div>
             
@@ -60,4 +60,4 @@ function Art() {
     )
 }
 
-export default Art;
+export default Clothing;
