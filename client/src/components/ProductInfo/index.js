@@ -121,7 +121,7 @@ export default function ProductInfo({handleClose}) {
       </div>
       <div className="form-group">
         <br/>
-        <Button type="submit" variant="outlined" color="secondary">Send product to market</Button>
+        <Button type="submit" variant="contained" color="secondary">Send product to market</Button>
       </div>
 
     </form>
