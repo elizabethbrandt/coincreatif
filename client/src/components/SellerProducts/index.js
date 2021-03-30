@@ -1,7 +1,5 @@
 import { makeStyles } from '@material-ui/core/styles';
 import { Card, CardMedia, CardActions, CardContent, Typography, IconButton } from '@material-ui/core';
-import AddCart from "./addCart";
-import FavoriteBtn from '../FavoriteBtn';
 import ProductModal from '../ProductModal';
 
 const useStyles = makeStyles({
@@ -12,7 +10,7 @@ const useStyles = makeStyles({
 });
 
 
-const ProductCard = ({product}) => {
+const SellerProduct = ({product}) => {
     const classes = useStyles();
     const {itemName, image, price, _id} = product;
     return (
@@ -30,11 +28,9 @@ const ProductCard = ({product}) => {
                 <IconButton>
                     <ProductModal itemId={_id} />
                 </IconButton>
-                <AddCart/>
-                <FavoriteBtn />
             </CardActions>
         </Card>
     )
 }
 
-export default ProductCard;
+export default SellerProduct;
