@@ -17,8 +17,6 @@ const ProductCard = ({product}) => {
     const {itemName, image, price, _id} = product;
     return (
         <Card>
-            {console.log(itemName)}
-            {console.log(price)}
             <CardMedia
                 className={classes.media}
                 image={image.includes("http") ? image : "/images/" + image}
