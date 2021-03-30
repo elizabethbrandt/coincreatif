@@ -21,10 +21,11 @@ const ItemView = ({item}) => {
                 image={image.includes("http") ? image : "/images/" + image}
             />
             <CardContent>
-                <Typography variant="h5" component="h2">{itemName}</Typography>
+                <Typography variant="h4" component="h2">{itemName}</Typography>
                 <Typography variant="h5" component="h2">${price}</Typography>
-                <Typography variant="h5" component="h2">Description: {description}</Typography>
-                <Typography variant="h5" component="h2">In Stock: {available}</Typography>
+                <Typography variant="h6" component="h2">Description:</Typography>
+                <Typography variant="subtitle1" component="h2">{description}</Typography>
+                <Typography variant="h6" component="h2">In Stock: {available}</Typography>
             </CardContent>
 
             <CardActions>

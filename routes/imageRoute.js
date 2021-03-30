@@ -7,7 +7,7 @@ const Item = require("../models/item")
 // Creates a storage of images into the public/images folder using multer
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, path.join(__dirname, "../client/public/images"))
+    cb(null, path.join(__dirname, "../public/images"))
   },
   filename: function (req, file, cb) {
     cb(null,  file.originalname)

@@ -2,6 +2,7 @@ import React from 'react';
 import { makeStyles, AppBar, Toolbar, Typography, CardMedia, IconButton } from '@material-ui/core';
 import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
 import TemporaryDrawer from './dropdown';
+import StorefrontTwoToneIcon from '@material-ui/icons/StorefrontTwoTone';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -32,6 +33,8 @@ export default function SearchAppBar() {
               style={{height:"100px", width:"150px"}}
               image="https://i.ibb.co/mJQ8JQD/Artboard-4.png"
               title="Coin Créatif Logo"
+              component="a"
+              href="/products"
             />
             </div>
 
@@ -42,7 +45,16 @@ export default function SearchAppBar() {
          </Typography>
         
           <IconButton 
-          aria-label="delete" 
+          aria-label="My Market" 
+          component="a" 
+          href="/mymarket" 
+          className={classes.margin}>
+
+            <StorefrontTwoToneIcon fontSize="large" />
+          </IconButton>
+
+          <IconButton 
+          aria-label="Checkout" 
           component="a" 
           href="/cart" 
           className={classes.margin}>

@@ -27,7 +27,8 @@ const SignUp = ({ history }) => {
       flexDirection: "column",
       alignItems: "center"}}>
 
-      <h1>Sign up</h1>
+      <Typography variant="h3">Sign Up</Typography>
+      <br/>
 
       <form onSubmit={handleSignUp}>
           <TextField 
@@ -57,8 +58,8 @@ const SignUp = ({ history }) => {
           Sign Up</Button>
       </form>
       
-        <Typography>Already have an account yet?
-          <Button color="secondary" disableElevation href="/login" > Login</Button>
+        <Typography>Already have an account?
+          <Button color="secondary" disableElevation href="/login" > Log In</Button>
         </Typography>
 
     </Paper>

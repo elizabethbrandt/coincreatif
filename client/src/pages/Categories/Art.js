@@ -1,10 +1,9 @@
 import { Grid, Typography } from "@material-ui/core";
 import { useEffect, useState } from "react";
-import SearchBar from "../../components/Nav/Searchbar";
 import ProductCard from "../../components/ProductCard";
 import API from "../../utils/products";
 
-function Products() {
+function Art() {
 
 
     const [products, setProducts] = useState([]);
@@ -17,41 +16,23 @@ function Products() {
             })
     }, []);
 
-    const [searchInput, setSearchInput] = useState("");
-
-    const handleInputChange = (e) => {
-        setSearchInput(e.target.value);
-      };
-
     useEffect(() => {
-        let items = searchInput.length
+        let items = products.length
             ? products.filter((data) => {
                 const condition =
-                data.itemName.toLowerCase().includes(searchInput.toLowerCase()) ||
-                data.category
-                    .toLowerCase()
-                    .includes(searchInput.toString().toLowerCase()) ||
-                data.description.toLowerCase().includes(searchInput.toLowerCase());
+                data.category.includes("Art")
                 return condition;
             })
             : [];
         setFilteredProducts(items);
-    }, [searchInput, products]);
-
-    const searchCondition =
-    filteredProducts.length === 0 ? products : filteredProducts;
-
+    }, [products]);
 
     return (
         <Grid container style={{marginBottom:"60px"}}>
             <div style={{marginLeft:"auto",marginRight:"auto", marginTop:"10px", marginBottom: "10px", textAlign:"center",}}>
 
             <Typography variant="h3" style={{width:"auto"}} >Marketplace</Typography>
-                <br />
-                <SearchBar 
-                products={products} 
-                handleInputChange={handleInputChange} 
-                searchInput={searchInput}/>
+
             </div>
             
             <Grid item container>
@@ -61,11 +42,11 @@ function Products() {
 
                 <Grid item container xs={10} sm={8} spacing={2}>
 
-                    {searchCondition.length ? searchCondition.map(product => (
+                    {filteredProducts.map(product => (
                         <Grid item xs={12} sm={4}>
                             <ProductCard product={product} key={product._id}  />
                         </Grid>
-                    )) : "" }
+                    ))}
 
                 </Grid>
 
@@ -79,4 +60,4 @@ function Products() {
     )
 }
 
-export default Products;
+export default Art;

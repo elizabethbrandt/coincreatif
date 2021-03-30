@@ -3,11 +3,17 @@ import { createMuiTheme } from '@material-ui/core/styles';
 const theme = createMuiTheme({
   palette: {
     primary: {
-      main: "#A5FAED",
+      main: "#B5E6C5",
     },
     secondary: {
-      main: "#15D6F1",
+      main: "#00AEEF",
     },
+    info: {
+      main: "#730071",
+    },
+  },
+    typography: {
+    fontFamily: 'Spartan'
   },
 });
 
