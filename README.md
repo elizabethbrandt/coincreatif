@@ -66,10 +66,24 @@ This is an application for artist and creative types. Using react we've made a u
 </h2>
 
 ```
-AS A USER
-I WANT TO
-SO THAT I
+AS A creative artist/seller:
+I WANT TO modify the list of products such as adding/removing products 
+Modify product images 
+Select a category for the products
+Adjust quantity of items, and click to navigate product detail page
+SO THAT I can adjust my offerings as a vendor/seller overtime
 ```
+
+<h2 align="center">Presentation Slides
+
+=============================
+</h2>
+
+<h4 align="center">
+ 
+[Coin Creatif Presentation](https://docs.google.com/presentation/d/1h64WA1CeR1kQq62r7KANrQg59d3L6oLDPBxMk4htD1U/edit#slide=id.g29f43f0a72_0_24)
+
+</h4>
 
 <h2 align="center">Technology Used
 
