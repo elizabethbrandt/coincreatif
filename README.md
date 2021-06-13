@@ -117,9 +117,9 @@ Francine Babauta
 [GitHub](https://github.com/fbabauta) ||
 [Linkedin](www.linkedin.com/in/francine-babauta)
 
-Jainanie Kaganovsky
+Jailanie Kaganovsky
 [GitHub](https://github.com/jkaganovsky) ||
-[Linkedin](https://www.linkedin.com/in/jailanie-kaganovsky-573a00116/)
+[Linkedin](https://www.linkedin.com/in/jkaganovsky/)
 
 </h4>
 
