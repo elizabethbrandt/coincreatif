@@ -8,7 +8,7 @@
 =============================
 </h2>
 
-This is an application for artist and creative types. Using react we've made a user friendly and mobile forward website. It is a platform to showcase and sell handmade items with the ability to post new items and checkout items as well once you have logged into your account.
+This is an application for artist and creative types. Using react we've made a user friendly and mobile forward website. It is a platform to showcase and sell handmade items with the ability to post new items and checkout items as well once you have logged into your account. Guest Login: username - guest@email.com, password - guest123
 
 
 <h2 align="center">Table of Contents: 
