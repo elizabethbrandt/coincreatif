@@ -1,35 +1,46 @@
-const stripe = require(process.env.STRIPE_SECRECT_KEY);
+const Payments = require('../models/payment');
 
-const createPaymentSession = async (req, res) => {
-    let { cart, customer_email } = req.body;
+const paymentCtrl = {
+    getPayments: async (req, res) => {
+        try {
+            const payments = await Payments.find();
+            res.json(payments);
+        } catch (err) {
+            return res.status(500).json({ msg: err.message });
+        }
+    },
+    createPayment: async (req, res) => {
+        try {
+            const user = await Users.findById(req.user.id).select('name email');
+            if (!user) return res.status(400).json({ msg: "User does not exist." });
 
-    line_items = cart.map((item) => {
-    return {
-      name: item.title,
-      images: [item.image],
-      amount: item.price * 100,
-      currency: "usd",
-      quantity: item.quantity,
-    };
-  });
+            const { cart, paymentID, address } = req.body;
 
-  try {
-    let session = await stripe.checkout.sessions.create({
-      payment_method_types: ["card"],
-      customer_email,
-      success_url: process.env.APP_URL,
-      cancel_url: process.env.APP_URL,
-      line_items,
-    });
+            const { _id, name, email } = user;
 
-    return res.json({
-      session,
-    });
-  } catch (error) {
-    console.log(error);
-  }
+            const newPayment = new Payments({
+                user_id: _id, name, email, cart, paymentId, address
+            });
+
+            cart.filter(item => {
+                return sold(item._id, item.quantity, item.sold);
+            });
+
+            await newPayment.save();
+            res.json({ msg: "Payment Success!" });
+        
+        } catch (err) {
+            return res.status(500).json({ msg: err.message });
+        }
+    }
 };
 
-module.exports = { createPaymentSession };
+const sold = async (id, quantity, oldSold) => {
+    await Products.findOneAndUpdate({ _id: id }, {
+        sold: quantity + oldSold
+    });
+};
+
+module.exports = paymentController;
 
 
